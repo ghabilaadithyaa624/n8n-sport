@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pick board</title>
+<style>
+  :root{
+    --bg:#0b0e12; --panel:#12161c; --panel-2:#171c24; --line:#232a35;
+    --ink:#e7ebf1; --ink-dim:#8a94a3; --ink-faint:#5b6472;
+    --signal:#3ddc97; --signal-dim:#1c5c45; --warn:#e0a640; --err:#e0605a;
+    --mono:"IBM Plex Mono","SF Mono",ui-monospace,Menlo,monospace;
+    --sans:"Inter",-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);min-height:100vh}
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 28px;border-bottom:1px solid var(--line);
+  }
+  h1{font-size:16px;font-weight:600;letter-spacing:.2px;margin:0}
+  h1 span{color:var(--ink-faint);font-weight:400}
+  .fx-badge{font-family:var(--mono);font-size:12px;color:var(--ink-dim);
+    background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:5px 10px}
+  main{max-width:1080px;margin:0 auto;padding:24px 28px 60px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .stat .num{font-family:var(--mono);font-size:22px;font-weight:600}
+  .stat .lbl{font-size:12px;color:var(--ink-dim);margin-top:2px}
+  .controls{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+  select,input{
+    background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    border-radius:7px;padding:8px 10px;font-size:13px;font-family:var(--sans);
+  }
+  .toggle{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+  .toggle button{
+    background:var(--panel);color:var(--ink-dim);border:none;padding:8px 14px;
+    font-size:13px;cursor:pointer;font-family:var(--sans);
+  }
+  .toggle button.active{background:var(--signal-dim);color:var(--signal)}
+  .row{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr .8fr .6fr;gap:14px;align-items:center;
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:14px 16px;margin-bottom:8px;
+  }
+  .row.head{background:transparent;border:none;padding:0 16px;margin-bottom:6px}
+  .row.head span{font-size:11px;color:var(--ink-faint);text-transform:none}
+  .matchup{font-size:14px;font-weight:500}
+  .meta{font-size:12px;color:var(--ink-dim);margin-top:2px;font-family:var(--mono)}
+  .pick{font-family:var(--mono);font-size:13px}
+  .pick.no-bet{color:var(--ink-faint)}
+  .pick.value{color:var(--signal)}
+  .conf-bar{height:4px;background:var(--line);border-radius:2px;margin-top:6px;overflow:hidden}
+  .conf-fill{height:100%;background:var(--signal)}
+  .odds{font-family:var(--mono);font-size:13px;color:var(--ink-dim)}
+  .payout{font-family:var(--mono);font-size:13px}
+  .reasoning{grid-column:1/-1;font-size:12px;color:var(--ink-dim);margin-top:8px;
+    padding-top:8px;border-top:1px solid var(--line);line-height:1.5}
+  .flag{font-size:10px;color:var(--warn);border:1px solid var(--warn);border-radius:4px;
+    padding:1px 5px;margin-left:8px}
+  .empty{color:var(--ink-faint);font-size:13px;padding:40px 0;text-align:center}
+  .stake-input{display:flex;align-items:center;gap:8px;margin-left:auto}
+  .stake-input input{width:90px}
+  .btn-run{
+    background:linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color:#ffffff;border:none;border-radius:7px;padding:7px 14px;
+    font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;
+    gap:6px;transition:all .2s ease;box-shadow:0 2px 8px rgba(16,185,129,.25);
+    font-family:var(--sans);
+  }
+  .btn-run:hover{filter:brightness(1.1);transform:translateY(-1px)}
+  .btn-run:disabled{background:var(--panel-2);color:var(--ink-dim);cursor:not-allowed;box-shadow:none;transform:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>Pick board <span>— live orchestrator output</span></h1>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button id="btnRunNow" class="btn-run">⚡ Run Pipeline Now</button>
+    <div class="fx-badge" id="fxBadge">FX —</div>
+  </div>
+</header>
+<main>
+  <div class="stats" id="stats"></div>
+  <div class="controls">
+    <select id="sportFilter"><option value="">All sports</option></select>
+    <div class="toggle" id="pickToggle">
+      <button data-v="" class="active">All picks</button>
+      <button data-v="value_only">Value picks only</button>
+    </div>
+    <div class="stake-input">
+      <span style="font-size:12px;color:var(--ink-dim)">Stake</span>
+      <input type="number" id="stakeAmount" value="1000" min="0">
+      <div class="toggle" id="currencyToggle">
+        <button data-v="INR" class="active">INR</button>
+        <button data-v="USD">USD</button>
+      </div>
+    </div>
+  </div>
+  <div class="row head">
+    <span>Matchup</span><span>Pick</span><span>Market odds</span><span>Stake conv.</span><span>Payout</span>
+  </div>
+  <div id="list"></div>
+</main>
+<script>
+const API = '';
+let state = { predictions: [], sport: '', pickFilter: '', currency: 'INR', stake: 1000 };
+
+async function load() {
+  const [predRes, accRes] = await Promise.all([
+    fetch(`${API}/api/predictions?limit=200${state.sport ? '&sport=' + state.sport : ''}${state.pickFilter ? '&pick=' + state.pickFilter : ''}`).then(r => r.json()).catch(() => ({ predictions: [] })),
+    fetch(`${API}/api/accuracy`).then(r => r.json()).catch(() => null)
+  ]);
+  state.predictions = predRes.predictions || [];
+  renderStats(accRes);
+  renderSportOptions();
+  renderList();
+  renderFx();
+}
+
+function renderFx() {
+  const withFx = state.predictions.find(p => p.fx_usd_to_inr);
+  document.getElementById('fxBadge').textContent = withFx
+    ? `1 USD = ${withFx.fx_usd_to_inr.toFixed(2)} INR`
+    : 'FX rate pending';
+}
+
+function renderStats(acc) {
+  const o = (acc && acc.overall) || {};
+  const items = [
+    { num: o.total_predictions ?? '—', lbl: 'Total predictions' },
+    { num: o.accuracy !== null && o.accuracy !== undefined ? o.accuracy + '%' : '—', lbl: 'Accuracy (graded picks)' },
+    { num: o.graded_predictions ?? 0, lbl: 'Outcomes recorded' },
+    { num: o.llm_parse_failures ?? 0, lbl: 'LLM parse failures' }
+  ];
+  document.getElementById('stats').innerHTML = items.map(i =>
+    `<div class="stat"><div class="num">${i.num}</div><div class="lbl">${i.lbl}</div></div>`
+  ).join('');
+}
+
+function renderSportOptions() {
+  const sel = document.getElementById('sportFilter');
+  const current = sel.value;
+  const sports = [...new Set(state.predictions.map(p => p.sport))].sort();
+  sel.innerHTML = '<option value="">All sports</option>' + sports.map(s => `<option value="${s}">${s}</option>`).join('');
+  sel.value = current;
+}
+
+function convert(usdAmount) {
+  const p = state.predictions.find(x => x.fx_usd_to_inr);
+  const rate = p ? p.fx_usd_to_inr : null;
+  if (!rate) return null;
+  return state.currency === 'INR' ? usdAmount * rate : usdAmount;
+}
+
+function renderList() {
+  const list = document.getElementById('list');
+  if (!state.predictions.length) {
+    list.innerHTML = '<div class="empty">No predictions yet — waiting on the n8n workflow\'s first run.</div>';
+    return;
+  }
+  const symbol = state.currency === 'INR' ? '\u20b9' : '$';
+  // stakeAmount is entered in the currently selected display currency; normalise to USD for payout math.
+  const p = state.predictions.find(x => x.fx_usd_to_inr);
+  const rate = p ? p.fx_usd_to_inr : null;
+  const stakeUsd = rate ? (state.currency === 'INR' ? state.stake / rate : state.stake) : null;
+
+  list.innerHTML = state.predictions.map(pred => {
+    const isValue = pred.llm_pick && pred.llm_pick !== 'no_bet';
+    const conf = pred.llm_confidence ? Math.round(pred.llm_confidence * 100) : 0;
+    const odds = pred.picked_avg_decimal_odds;
+    const payoutUsd = (odds && stakeUsd) ? stakeUsd * odds : null;
+    const payoutDisplay = payoutUsd !== null
+      ? symbol + (state.currency === 'INR' ? (payoutUsd * rate) : payoutUsd).toFixed(2)
+      : '—';
+    const stakeDisplay = stakeUsd !== null
+      ? symbol + (state.currency === 'INR' ? state.stake : state.stake).toFixed(2)
+      : '—';
+    return `
+      <div class="row">
+        <div>
+          <div class="matchup">${pred.home_team} vs ${pred.away_team}</div>
+          <div class="meta">${pred.sport} &middot; ${new Date(pred.commence_time).toLocaleString()}</div>
+        </div>
+        <div>
+          <div class="pick ${isValue ? 'value' : 'no-bet'}">${pred.llm_pick}${pred.llm_parse_failed ? '<span class="flag">parse fail</span>' : ''}</div>
+          <div class="conf-bar"><div class="conf-fill" style="width:${conf}%"></div></div>
+        </div>
+        <div class="odds">${odds ? odds.toFixed(2) : '—'}</div>
+        <div class="odds">${stakeDisplay}</div>
+        <div class="payout">${payoutDisplay}</div>
+        ${pred.llm_reasoning ? `<div class="reasoning">${pred.llm_reasoning}</div>` : ''}
+      </div>`;
+  }).join('');
+}
+
+document.getElementById('sportFilter').addEventListener('change', e => { state.sport = e.target.value; load(); });
+document.getElementById('pickToggle').addEventListener('click', e => {
+  if (e.target.tagName !== 'BUTTON') return;
+  [...e.currentTarget.children].forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  state.pickFilter = e.target.dataset.v;
+  load();
+});
+document.getElementById('currencyToggle').addEventListener('click', e => {
+  if (e.target.tagName !== 'BUTTON') return;
+  [...e.currentTarget.children].forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  state.currency = e.target.dataset.v;
+  renderList();
+});
+document.getElementById('stakeAmount').addEventListener('input', e => {
+  state.stake = Number(e.target.value) || 0;
+  renderList();
+});
+
+const btnRunNow = document.getElementById('btnRunNow');
+if (btnRunNow) {
+  btnRunNow.addEventListener('click', async () => {
+    btnRunNow.disabled = true;
+    btnRunNow.textContent = '⏳ Running AI pipeline...';
+    try {
+      const res = await fetch('/api/trigger', { method: 'POST' });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || 'Failed to trigger');
+
+      let secondsLeft = 10;
+      const timer = setInterval(async () => {
+        secondsLeft--;
+        btnRunNow.textContent = `⏳ Fetching picks (${secondsLeft}s)...`;
+        if (secondsLeft <= 0) {
+          clearInterval(timer);
+          await load();
+          btnRunNow.disabled = false;
+          btnRunNow.textContent = '⚡ Run Pipeline Now';
+        }
+      }, 1000);
+    } catch (err) {
+      alert('Error triggering pipeline: ' + err.message);
+      btnRunNow.disabled = false;
+      btnRunNow.textContent = '⚡ Run Pipeline Now';
+    }
+  });
+}
+
+load();
+setInterval(load, 30000);
+</script>
+</body>
+</html>

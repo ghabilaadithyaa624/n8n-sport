@@ -1,0 +1,495 @@
+{
+  "name": "Sports Betting Prediction Orchestrator",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sports-run",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "webhookTrigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -200,
+        140
+      ],
+      "webhookId": "sports-run"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "id": "trigger",
+      "name": "Every 30 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c1",
+              "name": "ODDS_API_KEY",
+              "value": "YOUR_ODDS_API_KEY",
+              "type": "string"
+            },
+            {
+              "id": "c2",
+              "name": "CF_ACCOUNT_ID",
+              "value": "YOUR_CF_ACCOUNT_ID",
+              "type": "string"
+            },
+            {
+              "id": "c3",
+              "name": "CF_API_TOKEN",
+              "value": "YOUR_CF_API_TOKEN",
+              "type": "string"
+            },
+            {
+              "id": "c4",
+              "name": "CF_MODEL",
+              "value": "@cf/meta/llama-3.1-8b-instruct",
+              "type": "string"
+            },
+            {
+              "id": "c5",
+              "name": "BACKEND_URL",
+              "value": "http://host.docker.internal:3000",
+              "type": "string"
+            },
+            {
+              "id": "c6",
+              "name": "SPORTS",
+              "value": "basketball_nba,soccer_epl,americanfootball_nfl,cricket_ipl",
+              "type": "string"
+            },
+            {
+              "id": "c7",
+              "name": "REGIONS",
+              "value": "us,uk,eu",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "config",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        20,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://api.frankfurter.dev/v1/latest?base=USD&symbols=INR",
+        "options": {}
+      },
+      "id": "fx",
+      "name": "Get FX Rate (USD to INR)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        480
+      ],
+      "continueOnFail": true,
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "url": "=https://api.the-odds-api.com/v4/sports/?apiKey={{ $json.ODDS_API_KEY }}",
+        "options": {}
+      },
+      "id": "getSports",
+      "name": "Get Active Sports",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        300
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "jsCode": "// Only fetch sports you actually configured AND that are currently in-season\nconst tracked = $('Config').first().json.SPORTS.split(',').map(s => s.trim());\nconst raw = $input.all().map(i => i.json);\nconst activeList = Array.isArray(raw[0]) ? raw[0] : raw;\nconst activeKeys = activeList.map(s => s.key);\nconst sportsToFetch = tracked.filter(s => activeKeys.includes(s));\n\nif (sportsToFetch.length === 0) {\n  throw new Error('None of the sports in Config.SPORTS are currently active/in-season. Check the sport keys against /v4/sports.');\n}\n\nreturn sportsToFetch.map(sport => ({ json: { sport } }));"
+      },
+      "id": "filterSports",
+      "name": "Filter Tracked Sports",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "loop",
+      "name": "Loop Over Sports",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        700,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "allDone",
+      "name": "All Sports Processed",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        700,
+        100
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://api.the-odds-api.com/v4/sports/{{ $json.sport }}/odds/?apiKey={{ $('Config').first().json.ODDS_API_KEY }}&regions={{ $('Config').first().json.REGIONS }}&markets=h2h&oddsFormat=decimal",
+        "options": {}
+      },
+      "id": "getOdds",
+      "name": "Get Odds For Sport",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        920,
+        220
+      ],
+      "continueOnFail": true,
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "jsCode": "// De-vig bookmaker odds into fair (implied) win probabilities, averaged across all bookmakers.\n// This is the \"does it ever fail\" layer: a single bad/missing odds response becomes a\n// clearly-flagged error item instead of crashing the run.\nconst raw = $input.all().map(i => i.json);\nconst first = raw[0];\n\nif (first && first.error) {\n  return [{ json: { sport: $('Loop Over Sports').first().json.sport, error: true, message: (first.error.message || JSON.stringify(first.error)) } }];\n}\n\nconst events = Array.isArray(first) ? first : raw;\nconst results = [];\n\nfunction avg(arr) { return arr.reduce((a, b) => a + b, 0) / arr.length; }\n\nfor (const event of events) {\n  if (!event.bookmakers || !event.bookmakers.length) continue;\n  const probsByTeam = {};\n  const oddsByTeam = {};\n\n  for (const bm of event.bookmakers) {\n    const market = (bm.markets || []).find(m => m.key === 'h2h');\n    if (!market) continue;\n    const overround = market.outcomes.reduce((sum, o) => sum + 1 / o.price, 0);\n    for (const outcome of market.outcomes) {\n      const fairProb = (1 / outcome.price) / overround;\n      (probsByTeam[outcome.name] ||= []).push(fairProb);\n      (oddsByTeam[outcome.name] ||= []).push(outcome.price);\n    }\n  }\n\n  const implied = Object.keys(probsByTeam).map(team => ({\n    team,\n    implied_probability: Number(avg(probsByTeam[team]).toFixed(4)),\n    avg_decimal_odds: Number(avg(oddsByTeam[team]).toFixed(3))\n  })).sort((a, b) => b.implied_probability - a.implied_probability);\n\n  if (!implied.length) continue;\n\n  results.push({\n    event_id: event.id,\n    sport: event.sport_key,\n    commence_time: event.commence_time,\n    home_team: event.home_team,\n    away_team: event.away_team,\n    bookmaker_count: event.bookmakers.length,\n    implied_probabilities: implied\n  });\n}\n\nif (results.length === 0) {\n  return [{ json: { sport: $('Loop Over Sports').first().json.sport, error: true, message: 'No events with usable h2h odds right now (off-season or no bookmakers listed yet).' } }];\n}\n\nreturn results.map(r => ({ json: r }));"
+      },
+      "id": "computeProbs",
+      "name": "Compute Implied Probabilities",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1140,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "cond1",
+              "leftValue": "={{ $json.error }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "hasError",
+      "name": "Has Error?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1360,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').first().json.BACKEND_URL + '/api/errors' }}",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ sport: $json.sport, message: $json.message, occurred_at: new Date().toISOString() }) }}"
+      },
+      "id": "logError",
+      "name": "Log Error To Backend",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1580,
+        400
+      ],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.cloudflare.com/client/v4/accounts/{{ $('Config').first().json.CF_ACCOUNT_ID }}/ai/run/{{ $('Config').first().json.CF_MODEL }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Config').first().json.CF_API_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ messages: [ { role: 'system', content: \"You are a sports betting analyst. You are given bookmaker-implied win probabilities that have already been de-vigged (overround removed). Decide if there is a value pick worth flagging. Reply with ONLY compact JSON, no prose, no markdown fences: {\\\\\\\"pick\\\\\\\": string, \\\\\\\"confidence\\\\\\\": number between 0 and 1, \\\\\\\"reasoning\\\\\\\": string under 40 words}. \\\\\\\"pick\\\\\\\" must be exactly one of the team names given, or the string \\\\\\\"no_bet\\\\\\\" if you see no edge worth flagging.\" }, { role: 'user', content: 'Event: ' + $json.home_team + ' vs ' + $json.away_team + '. Sport: ' + $json.sport + '. Commence: ' + $json.commence_time + '. Market-implied probabilities: ' + JSON.stringify($json.implied_probabilities) } ] }) }}",
+        "options": {}
+      },
+      "id": "askLLM",
+      "name": "Ask LLM For Pick",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1580,
+        220
+      ],
+      "continueOnFail": true,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {
+        "jsCode": "const events = $('Compute Implied Probabilities').all().map(i => i.json);\nconst rawList = $input.all().map(i => i.json);\n\nlet usdToInr = 95.5;\ntry {\n  const fx = $('Get FX Rate (USD to INR)').first().json;\n  if (fx && fx.rates && fx.rates.INR) usdToInr = fx.rates.INR;\n} catch (e) {\n  usdToInr = 95.5;\n}\n\nreturn rawList.map((raw, idx) => {\n  const event = events[idx] || events[0] || {};\n  let llmResult;\n  try {\n    let candidate = (raw.result && raw.result.response) ? raw.result.response : (raw.response || null);\n    if (!candidate && raw.result && raw.result.choices && raw.result.choices[0] && raw.result.choices[0].message) {\n      candidate = raw.result.choices[0].message.content;\n    }\n    if (typeof candidate === 'object' && candidate !== null) {\n      llmResult = candidate;\n    } else if (typeof candidate === 'string') {\n      const match = candidate.match(/\\{[\\s\\S]*\\}/);\n      llmResult = match ? JSON.parse(match[0]) : JSON.parse(candidate);\n    } else {\n      const text = JSON.stringify(raw);\n      const match = text.match(/\\{[\\s\\S]*\\}/);\n      llmResult = match ? JSON.parse(match[0]) : null;\n    }\n    if (!llmResult || typeof llmResult.pick === 'undefined') throw new Error('missing pick field');\n  } catch (e) {\n    llmResult = { pick: 'no_bet', confidence: 0, reasoning: 'LLM output could not be parsed: ' + e.message, llm_parse_failed: true };\n  }\n\n  const pickedOdds = (event.implied_probabilities || []).find(p => p.team === llmResult.pick) || null;\n\n  return {\n    json: {\n      event_id: event.event_id,\n      sport: event.sport,\n      home_team: event.home_team,\n      away_team: event.away_team,\n      commence_time: event.commence_time,\n      bookmaker_count: event.bookmaker_count,\n      market_implied_probabilities: event.implied_probabilities,\n      llm_pick: llmResult.pick,\n      llm_confidence: llmResult.confidence ?? null,\n      llm_reasoning: llmResult.reasoning || '',\n      llm_parse_failed: !!llmResult.llm_parse_failed,\n      picked_avg_decimal_odds: pickedOdds ? pickedOdds.avg_decimal_odds : null,\n      fx_usd_to_inr: usdToInr,\n      generated_at: new Date().toISOString(),\n      actual_result: null\n    }\n  };\n});"
+      },
+      "id": "mergeCurrency",
+      "name": "Parse LLM + Attach FX",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').first().json.BACKEND_URL + '/api/predictions' }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "postBackend",
+      "name": "Post Prediction To Backend",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2020,
+        220
+      ],
+      "continueOnFail": true,
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 30 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Get Active Sports",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get FX Rate (USD to INR)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Active Sports": {
+      "main": [
+        [
+          {
+            "node": "Filter Tracked Sports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Tracked Sports": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Sports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Sports": {
+      "main": [
+        [
+          {
+            "node": "All Sports Processed",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Odds For Sport",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Odds For Sport": {
+      "main": [
+        [
+          {
+            "node": "Compute Implied Probabilities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compute Implied Probabilities": {
+      "main": [
+        [
+          {
+            "node": "Has Error?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Error?": {
+      "main": [
+        [
+          {
+            "node": "Log Error To Backend",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ask LLM For Pick",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log Error To Backend": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Sports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ask LLM For Pick": {
+      "main": [
+        [
+          {
+            "node": "Parse LLM + Attach FX",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse LLM + Attach FX": {
+      "main": [
+        [
+          {
+            "node": "Post Prediction To Backend",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post Prediction To Backend": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Sports",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

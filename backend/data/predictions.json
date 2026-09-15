@@ -1,0 +1,2412 @@
+[
+  {
+    "id": "e1eb815f-d635-4653-a779-0670f658050f",
+    "received_at": "2026-09-15T05:48:03.579Z",
+    "actual_result": null,
+    "event_id": "26b036ff107f3c658258eaf4a6f26228",
+    "sport": "basketball_nba",
+    "home_team": "Detroit Pistons",
+    "away_team": "Boston Celtics",
+    "commence_time": "2026-10-20T19:00:00Z",
+    "bookmaker_count": 30,
+    "market_implied_probabilities": [
+      {
+        "team": "Detroit Pistons",
+        "implied_probability": 0.5292,
+        "avg_decimal_odds": 1.787
+      },
+      {
+        "team": "Boston Celtics",
+        "implied_probability": 0.4708,
+        "avg_decimal_odds": 2.009
+      }
+    ],
+    "llm_pick": "Detroit Pistons",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Pistons have a slight edge due to a relatively close implied probability gap.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.787,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:03.579Z"
+  },
+  {
+    "id": "93d91162-c1d6-45b0-a552-c24c1fb307ee",
+    "received_at": "2026-09-15T05:48:04.158Z",
+    "actual_result": null,
+    "event_id": "2b042ddad3d3c6c6fe5b7005dc26c775",
+    "sport": "basketball_nba",
+    "home_team": "New York Knicks",
+    "away_team": "Philadelphia 76ers",
+    "commence_time": "2026-10-20T23:00:00Z",
+    "bookmaker_count": 30,
+    "market_implied_probabilities": [
+      {
+        "team": "New York Knicks",
+        "implied_probability": 0.6336,
+        "avg_decimal_odds": 1.495
+      },
+      {
+        "team": "Philadelphia 76ers",
+        "implied_probability": 0.3664,
+        "avg_decimal_odds": 2.587
+      }
+    ],
+    "llm_pick": "Philadelphia 76ers",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Implied probability is higher than historical performance, indicating potential value in 76ers.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.587,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:04.158Z"
+  },
+  {
+    "id": "c7637ad4-b912-4e44-8721-216b2fb2f9a6",
+    "received_at": "2026-09-15T05:48:04.632Z",
+    "actual_result": null,
+    "event_id": "bccd283de56915e29af1788beb0abfc9",
+    "sport": "basketball_nba",
+    "home_team": "San Antonio Spurs",
+    "away_team": "Oklahoma City Thunder",
+    "commence_time": "2026-10-21T01:30:00Z",
+    "bookmaker_count": 30,
+    "market_implied_probabilities": [
+      {
+        "team": "San Antonio Spurs",
+        "implied_probability": 0.5325,
+        "avg_decimal_odds": 1.776
+      },
+      {
+        "team": "Oklahoma City Thunder",
+        "implied_probability": 0.4675,
+        "avg_decimal_odds": 2.023
+      }
+    ],
+    "llm_pick": "San Antonio Spurs",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Spurs' implied probability higher than expected, potentially indicating value in their favor.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.776,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:04.632Z"
+  },
+  {
+    "id": "d499746c-c4a8-4614-8ade-7b06a6bd743c",
+    "received_at": "2026-09-15T05:48:05.213Z",
+    "actual_result": null,
+    "event_id": "85e6e4e2404ef7268659739997758da1",
+    "sport": "basketball_nba",
+    "home_team": "Orlando Magic",
+    "away_team": "Atlanta Hawks",
+    "commence_time": "2026-10-21T23:10:00Z",
+    "bookmaker_count": 17,
+    "market_implied_probabilities": [
+      {
+        "team": "Orlando Magic",
+        "implied_probability": 0.5531,
+        "avg_decimal_odds": 1.691
+      },
+      {
+        "team": "Atlanta Hawks",
+        "implied_probability": 0.4469,
+        "avg_decimal_odds": 2.094
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "Implied probabilities are close to 50/50, no clear edge in the market.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:05.213Z"
+  },
+  {
+    "id": "c48b737c-192c-4d26-bf3a-689bc560a03a",
+    "received_at": "2026-09-15T05:48:05.670Z",
+    "actual_result": null,
+    "event_id": "164cc0396837d5ff433215ffd3279283",
+    "sport": "basketball_nba",
+    "home_team": "Washington Wizards",
+    "away_team": "Milwaukee Bucks",
+    "commence_time": "2026-10-21T23:10:00Z",
+    "bookmaker_count": 17,
+    "market_implied_probabilities": [
+      {
+        "team": "Washington Wizards",
+        "implied_probability": 0.6695,
+        "avg_decimal_odds": 1.398
+      },
+      {
+        "team": "Milwaukee Bucks",
+        "implied_probability": 0.3305,
+        "avg_decimal_odds": 2.836
+      }
+    ],
+    "llm_pick": "Washington Wizards",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Wizards have a slight edge due to higher implied probability and lower odds.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.398,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:05.670Z"
+  },
+  {
+    "id": "01d70f64-2938-46ec-899b-a9a45f6cfd9f",
+    "received_at": "2026-09-15T05:48:06.178Z",
+    "actual_result": null,
+    "event_id": "47cc511bb5ce50f715e3625ce5ef77ee",
+    "sport": "basketball_nba",
+    "home_team": "Brooklyn Nets",
+    "away_team": "Charlotte Hornets",
+    "commence_time": "2026-10-21T23:40:00Z",
+    "bookmaker_count": 17,
+    "market_implied_probabilities": [
+      {
+        "team": "Charlotte Hornets",
+        "implied_probability": 0.6038,
+        "avg_decimal_odds": 1.552
+      },
+      {
+        "team": "Brooklyn Nets",
+        "implied_probability": 0.3962,
+        "avg_decimal_odds": 2.366
+      }
+    ],
+    "llm_pick": "Charlotte Hornets",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Implied probability of 60.38% is above their historical average, indicating potential value in backing the Hornets.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.552,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:06.179Z"
+  },
+  {
+    "id": "1936e47f-fa65-44ff-a94d-55c0e36de802",
+    "received_at": "2026-09-15T05:48:06.621Z",
+    "actual_result": null,
+    "event_id": "93cdd8e4ade5697cfccf42ee42c4d207",
+    "sport": "basketball_nba",
+    "home_team": "Miami Heat",
+    "away_team": "Minnesota Timberwolves",
+    "commence_time": "2026-10-21T23:40:00Z",
+    "bookmaker_count": 22,
+    "market_implied_probabilities": [
+      {
+        "team": "Miami Heat",
+        "implied_probability": 0.5228,
+        "avg_decimal_odds": 1.802
+      },
+      {
+        "team": "Minnesota Timberwolves",
+        "implied_probability": 0.4772,
+        "avg_decimal_odds": 1.975
+      }
+    ],
+    "llm_pick": "Miami Heat",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Implied probability slightly lower than expected, potential value in backing Miami Heat",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.802,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:06.621Z"
+  },
+  {
+    "id": "8774d249-123c-4ae4-9817-cc0290185225",
+    "received_at": "2026-09-15T05:48:07.111Z",
+    "actual_result": null,
+    "event_id": "fd33c09c84ab4c2fe6955d59f8dc5dd2",
+    "sport": "basketball_nba",
+    "home_team": "New Orleans Pelicans",
+    "away_team": "Indiana Pacers",
+    "commence_time": "2026-10-22T00:10:00Z",
+    "bookmaker_count": 17,
+    "market_implied_probabilities": [
+      {
+        "team": "Indiana Pacers",
+        "implied_probability": 0.5955,
+        "avg_decimal_odds": 1.574
+      },
+      {
+        "team": "New Orleans Pelicans",
+        "implied_probability": 0.4045,
+        "avg_decimal_odds": 2.318
+      }
+    ],
+    "llm_pick": "New Orleans Pelicans",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Pelicans' implied probability is lower than expected, indicating potential value in backing them.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.318,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:07.111Z"
+  },
+  {
+    "id": "d9b8801d-6300-41ef-ae2d-2cb9f0bedcfe",
+    "received_at": "2026-09-15T05:48:07.660Z",
+    "actual_result": null,
+    "event_id": "e6769c813dd625b622df94c14a562ce2",
+    "sport": "basketball_nba",
+    "home_team": "Memphis Grizzlies",
+    "away_team": "Utah Jazz",
+    "commence_time": "2026-10-22T00:10:00Z",
+    "bookmaker_count": 17,
+    "market_implied_probabilities": [
+      {
+        "team": "Utah Jazz",
+        "implied_probability": 0.5675,
+        "avg_decimal_odds": 1.649
+      },
+      {
+        "team": "Memphis Grizzlies",
+        "implied_probability": 0.4325,
+        "avg_decimal_odds": 2.165
+      }
+    ],
+    "llm_pick": "Memphis Grizzlies",
+    "llm_confidence": 0.72,
+    "llm_reasoning": "Memphis Grizzlies have a higher implied probability than Memphis Grizzlies' average performance in similar situations, indicating potential value.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.165,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:07.660Z"
+  },
+  {
+    "id": "6fc7c458-d481-4ec2-aeb5-f8ef136082c9",
+    "received_at": "2026-09-15T05:48:08.170Z",
+    "actual_result": null,
+    "event_id": "af2f084075391e55ba2a596e7846bb40",
+    "sport": "basketball_nba",
+    "home_team": "Houston Rockets",
+    "away_team": "Dallas Mavericks",
+    "commence_time": "2026-10-22T00:40:00Z",
+    "bookmaker_count": 17,
+    "market_implied_probabilities": [
+      {
+        "team": "Houston Rockets",
+        "implied_probability": 0.7236,
+        "avg_decimal_odds": 1.295
+      },
+      {
+        "team": "Dallas Mavericks",
+        "implied_probability": 0.2764,
+        "avg_decimal_odds": 3.404
+      }
+    ],
+    "llm_pick": "Dallas Mavericks",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Implied probability of 27.64% is significantly lower than expected, suggesting a potential value bet.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 3.404,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:08.170Z"
+  },
+  {
+    "id": "8128a835-fcc1-46b7-8a94-b87325435ce4",
+    "received_at": "2026-09-15T05:48:08.675Z",
+    "actual_result": null,
+    "event_id": "6fff70f4bf196dba25060a5775a03b54",
+    "sport": "basketball_nba",
+    "home_team": "Los Angeles Lakers",
+    "away_team": "Golden State Warriors",
+    "commence_time": "2026-10-22T02:10:00Z",
+    "bookmaker_count": 21,
+    "market_implied_probabilities": [
+      {
+        "team": "Los Angeles Lakers",
+        "implied_probability": 0.6157,
+        "avg_decimal_odds": 1.53
+      },
+      {
+        "team": "Golden State Warriors",
+        "implied_probability": 0.3843,
+        "avg_decimal_odds": 2.455
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "Implied probabilities are relatively close to 50/50, indicating no significant edge in either direction.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:08.675Z"
+  },
+  {
+    "id": "0d0f3592-49f9-4350-89a0-ba88b2ff70c9",
+    "received_at": "2026-09-15T05:48:09.134Z",
+    "actual_result": null,
+    "event_id": "71e24359951927c356bd8c852fb867dd",
+    "sport": "basketball_nba",
+    "home_team": "Portland Trail Blazers",
+    "away_team": "Phoenix Suns",
+    "commence_time": "2026-10-22T02:10:00Z",
+    "bookmaker_count": 17,
+    "market_implied_probabilities": [
+      {
+        "team": "Portland Trail Blazers",
+        "implied_probability": 0.6049,
+        "avg_decimal_odds": 1.549
+      },
+      {
+        "team": "Phoenix Suns",
+        "implied_probability": 0.3951,
+        "avg_decimal_odds": 2.372
+      }
+    ],
+    "llm_pick": "Portland Trail Blazers",
+    "llm_confidence": 0.65,
+    "llm_reasoning": "Blazers' implied probability is higher than expected, suggesting potential value at their current odds",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.549,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:09.134Z"
+  },
+  {
+    "id": "e2dd91d0-7fb2-49cb-8a22-b6e904c0fc1c",
+    "received_at": "2026-09-15T05:48:09.679Z",
+    "actual_result": null,
+    "event_id": "110e33c79c5ec8c0377702aff685f83b",
+    "sport": "basketball_nba",
+    "home_team": "Philadelphia 76ers",
+    "away_team": "Cleveland Cavaliers",
+    "commence_time": "2026-10-22T23:10:00Z",
+    "bookmaker_count": 15,
+    "market_implied_probabilities": [
+      {
+        "team": "Philadelphia 76ers",
+        "implied_probability": 0.6101,
+        "avg_decimal_odds": 1.532
+      },
+      {
+        "team": "Cleveland Cavaliers",
+        "implied_probability": 0.3899,
+        "avg_decimal_odds": 2.398
+      }
+    ],
+    "llm_pick": "Philadelphia 76ers",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Philadelphia 76ers' implied probability of 61.01% is higher than their historical performance in the NBA.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.532,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:09.679Z"
+  },
+  {
+    "id": "3677c591-d578-4ec7-8c5f-30606a2afab1",
+    "received_at": "2026-09-15T05:48:10.191Z",
+    "actual_result": null,
+    "event_id": "223b2883b9b05a67329ef246384b85f1",
+    "sport": "basketball_nba",
+    "home_team": "Oklahoma City Thunder",
+    "away_team": "Denver Nuggets",
+    "commence_time": "2026-10-23T01:40:00Z",
+    "bookmaker_count": 16,
+    "market_implied_probabilities": [
+      {
+        "team": "Oklahoma City Thunder",
+        "implied_probability": 0.6938,
+        "avg_decimal_odds": 1.349
+      },
+      {
+        "team": "Denver Nuggets",
+        "implied_probability": 0.3062,
+        "avg_decimal_odds": 3.063
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "Implied probabilities are close to 70-30, suggesting a fair market with no clear edge.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:10.191Z"
+  },
+  {
+    "id": "37a1299f-b96f-4c87-946b-7d37478d381e",
+    "received_at": "2026-09-15T05:48:10.640Z",
+    "actual_result": null,
+    "event_id": "0d34c898f6cbb990077ae9f0a2773513",
+    "sport": "basketball_nba",
+    "home_team": "Boston Celtics",
+    "away_team": "New York Knicks",
+    "commence_time": "2026-10-23T23:10:00Z",
+    "bookmaker_count": 11,
+    "market_implied_probabilities": [
+      {
+        "team": "Boston Celtics",
+        "implied_probability": 0.5486,
+        "avg_decimal_odds": 1.691
+      },
+      {
+        "team": "New York Knicks",
+        "implied_probability": 0.4514,
+        "avg_decimal_odds": 2.055
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "Probabilities are close to 50% on both sides, indicating no clear edge.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:10.640Z"
+  },
+  {
+    "id": "2c727e5f-e583-4ded-a2a9-47fd51bb92cc",
+    "received_at": "2026-09-15T05:48:11.188Z",
+    "actual_result": null,
+    "event_id": "49fc89a9696a9a20b658732b34ce61c4",
+    "sport": "basketball_nba",
+    "home_team": "San Antonio Spurs",
+    "away_team": "Houston Rockets",
+    "commence_time": "2026-10-24T01:40:00Z",
+    "bookmaker_count": 12,
+    "market_implied_probabilities": [
+      {
+        "team": "San Antonio Spurs",
+        "implied_probability": 0.6577,
+        "avg_decimal_odds": 1.415
+      },
+      {
+        "team": "Houston Rockets",
+        "implied_probability": 0.3423,
+        "avg_decimal_odds": 2.722
+      }
+    ],
+    "llm_pick": "San Antonio Spurs",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Implied underdog odds slightly favor Spurs, but not enough to create a clear edge.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.415,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:11.188Z"
+  },
+  {
+    "id": "76c1d34a-19a3-486b-a4a6-ae8242e246d4",
+    "received_at": "2026-09-15T05:48:11.690Z",
+    "actual_result": null,
+    "event_id": "45ebc54751ef3e435192eaeb0470acfb",
+    "sport": "basketball_nba",
+    "home_team": "Washington Wizards",
+    "away_team": "Charlotte Hornets",
+    "commence_time": "2026-10-30T23:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Charlotte Hornets",
+        "implied_probability": 0.5121,
+        "avg_decimal_odds": 1.825
+      },
+      {
+        "team": "Washington Wizards",
+        "implied_probability": 0.4879,
+        "avg_decimal_odds": 1.915
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "Implied probabilities are close to even, no clear edge for either team.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:11.690Z"
+  },
+  {
+    "id": "6ceda3b1-2b79-4fc6-a18d-d85c1deb1498",
+    "received_at": "2026-09-15T05:48:12.133Z",
+    "actual_result": null,
+    "event_id": "036a93ca33d6261c21d4bfa6e0d02568",
+    "sport": "basketball_nba",
+    "home_team": "Boston Celtics",
+    "away_team": "Chicago Bulls",
+    "commence_time": "2026-10-30T23:40:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Boston Celtics",
+        "implied_probability": 0.8286,
+        "avg_decimal_odds": 1.13
+      },
+      {
+        "team": "Chicago Bulls",
+        "implied_probability": 0.1714,
+        "avg_decimal_odds": 5.475
+      }
+    ],
+    "llm_pick": "Boston Celtics",
+    "llm_confidence": 0.83,
+    "llm_reasoning": "Celtics have a significant edge based on their high implied probability and low average decimal odds.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.13,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:12.133Z"
+  },
+  {
+    "id": "ab05afaf-53f3-44b2-9cf9-c0693524161c",
+    "received_at": "2026-09-15T05:48:12.592Z",
+    "actual_result": null,
+    "event_id": "64df299b882ea19ad5f8cb0ed5516a6f",
+    "sport": "basketball_nba",
+    "home_team": "Brooklyn Nets",
+    "away_team": "Detroit Pistons",
+    "commence_time": "2026-10-30T23:40:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Detroit Pistons",
+        "implied_probability": 0.7292,
+        "avg_decimal_odds": 1.285
+      },
+      {
+        "team": "Brooklyn Nets",
+        "implied_probability": 0.2708,
+        "avg_decimal_odds": 3.46
+      }
+    ],
+    "llm_pick": "Detroit Pistons",
+    "llm_confidence": 0.95,
+    "llm_reasoning": "Strong value on Pistons, with a high implied probability and relatively low odds",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.285,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:12.592Z"
+  },
+  {
+    "id": "15fabe62-2ea9-4540-9a06-85532c55bc00",
+    "received_at": "2026-09-15T05:48:13.065Z",
+    "actual_result": null,
+    "event_id": "96a166bbd49782dbd9a61c2fb9069787",
+    "sport": "basketball_nba",
+    "home_team": "Philadelphia 76ers",
+    "away_team": "New York Knicks",
+    "commence_time": "2026-10-30T23:40:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Philadelphia 76ers",
+        "implied_probability": 0.5399,
+        "avg_decimal_odds": 1.735
+      },
+      {
+        "team": "New York Knicks",
+        "implied_probability": 0.4601,
+        "avg_decimal_odds": 2.035
+      }
+    ],
+    "llm_pick": "Philadelphia 76ers",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Implied probability slightly lower than expected, edge exists at 53.99%",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.735,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:13.065Z"
+  },
+  {
+    "id": "3df919c1-2504-4496-a003-5ed288185916",
+    "received_at": "2026-09-15T05:48:13.535Z",
+    "actual_result": null,
+    "event_id": "b9778d0e3a26167eb49901dcae7eeb98",
+    "sport": "basketball_nba",
+    "home_team": "Dallas Mavericks",
+    "away_team": "Houston Rockets",
+    "commence_time": "2026-10-31T00:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Houston Rockets",
+        "implied_probability": 0.6081,
+        "avg_decimal_odds": 1.54
+      },
+      {
+        "team": "Dallas Mavericks",
+        "implied_probability": 0.3919,
+        "avg_decimal_odds": 2.39
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "Neither team presents a clear edge, with probabilities close to neutral 50%.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:13.535Z"
+  },
+  {
+    "id": "65e97f01-79e8-4e31-97e8-b1d884d6eed2",
+    "received_at": "2026-09-15T05:48:14.067Z",
+    "actual_result": null,
+    "event_id": "c3a424e24d426af94a693e06a33e3037",
+    "sport": "basketball_nba",
+    "home_team": "Miami Heat",
+    "away_team": "Indiana Pacers",
+    "commence_time": "2026-10-31T00:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Miami Heat",
+        "implied_probability": 0.5842,
+        "avg_decimal_odds": 1.605
+      },
+      {
+        "team": "Indiana Pacers",
+        "implied_probability": 0.4158,
+        "avg_decimal_odds": 2.255
+      }
+    ],
+    "llm_pick": "Miami Heat",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Miami Heat's de-vigged probability is higher than their market-implied probability, indicating a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.605,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:14.067Z"
+  },
+  {
+    "id": "07ad80b4-6a61-4a5e-b5cb-37a91d24d0e1",
+    "received_at": "2026-09-15T05:48:14.507Z",
+    "actual_result": null,
+    "event_id": "9ae108f7a23e86e8102237053dd9e58d",
+    "sport": "basketball_nba",
+    "home_team": "Phoenix Suns",
+    "away_team": "Denver Nuggets",
+    "commence_time": "2026-10-31T02:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Denver Nuggets",
+        "implied_probability": 0.5495,
+        "avg_decimal_odds": 1.705
+      },
+      {
+        "team": "Phoenix Suns",
+        "implied_probability": 0.4505,
+        "avg_decimal_odds": 2.08
+      }
+    ],
+    "llm_pick": "Denver Nuggets",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Denver Nuggets have a 54.95% implied probability and a slight edge over the actual market expectation.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.705,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:14.507Z"
+  },
+  {
+    "id": "edef4e18-5fd3-472b-8b89-d3d4d3e41006",
+    "received_at": "2026-09-15T05:48:14.976Z",
+    "actual_result": null,
+    "event_id": "761c15cdefb5a94e34f234e11d6e57ad",
+    "sport": "basketball_nba",
+    "home_team": "Golden State Warriors",
+    "away_team": "Los Angeles Lakers",
+    "commence_time": "2026-10-31T02:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Golden State Warriors",
+        "implied_probability": 0.5068,
+        "avg_decimal_odds": 1.845
+      },
+      {
+        "team": "Los Angeles Lakers",
+        "implied_probability": 0.4932,
+        "avg_decimal_odds": 1.895
+      }
+    ],
+    "llm_pick": "Golden State Warriors",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Warriors have a slight edge in the market-implied probabilities, suggesting a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.845,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:14.976Z"
+  },
+  {
+    "id": "aa099613-04a3-41f4-b237-a4ba823220d6",
+    "received_at": "2026-09-15T05:48:15.479Z",
+    "actual_result": null,
+    "event_id": "85869b2fdc16ef10d3e2582bf05ead95",
+    "sport": "basketball_nba",
+    "home_team": "Cleveland Cavaliers",
+    "away_team": "Philadelphia 76ers",
+    "commence_time": "2026-11-07T00:40:00Z",
+    "bookmaker_count": 1,
+    "market_implied_probabilities": [
+      {
+        "team": "Cleveland Cavaliers",
+        "implied_probability": 0.5222,
+        "avg_decimal_odds": 1.83
+      },
+      {
+        "team": "Philadelphia 76ers",
+        "implied_probability": 0.4778,
+        "avg_decimal_odds": 2
+      }
+    ],
+    "llm_pick": "Philadelphia 76ers",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "76ers have a 17.4% edge, based on market-implied probabilities, suggesting a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:15.479Z"
+  },
+  {
+    "id": "a5175ffd-7120-4161-8965-98e9f735a7b7",
+    "received_at": "2026-09-15T05:48:16.132Z",
+    "actual_result": null,
+    "event_id": "83d77fe350d56a036fd7a3404e78249a",
+    "sport": "basketball_nba",
+    "home_team": "Los Angeles Lakers",
+    "away_team": "Portland Trail Blazers",
+    "commence_time": "2026-11-07T03:10:00Z",
+    "bookmaker_count": 1,
+    "market_implied_probabilities": [
+      {
+        "team": "Los Angeles Lakers",
+        "implied_probability": 0.593,
+        "avg_decimal_odds": 1.62
+      },
+      {
+        "team": "Portland Trail Blazers",
+        "implied_probability": 0.407,
+        "avg_decimal_odds": 2.36
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "Implied probabilities are close to even money, indicating no edge in the market.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:16.132Z"
+  },
+  {
+    "id": "386dc842-7f2b-4355-b1ad-4df2d8dc6a97",
+    "received_at": "2026-09-15T05:48:16.692Z",
+    "actual_result": null,
+    "event_id": "6669b911691463c669a5c10574742e8e",
+    "sport": "basketball_nba",
+    "home_team": "Indiana Pacers",
+    "away_team": "New York Knicks",
+    "commence_time": "2026-11-14T00:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "New York Knicks",
+        "implied_probability": 0.545,
+        "avg_decimal_odds": 1.72
+      },
+      {
+        "team": "Indiana Pacers",
+        "implied_probability": 0.455,
+        "avg_decimal_odds": 2.06
+      }
+    ],
+    "llm_pick": "New York Knicks",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Knicks have a slight edge due to higher implied probability and lower odds compared to Pacers.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.72,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:16.692Z"
+  },
+  {
+    "id": "7a787983-8102-4f3c-aed1-a8df5881c53a",
+    "received_at": "2026-09-15T05:48:17.145Z",
+    "actual_result": null,
+    "event_id": "1fae7f34ec6035dffa74feb148ee26c7",
+    "sport": "basketball_nba",
+    "home_team": "San Antonio Spurs",
+    "away_team": "Golden State Warriors",
+    "commence_time": "2026-11-14T02:40:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "San Antonio Spurs",
+        "implied_probability": 0.8178,
+        "avg_decimal_odds": 1.145
+      },
+      {
+        "team": "Golden State Warriors",
+        "implied_probability": 0.1822,
+        "avg_decimal_odds": 5.155
+      }
+    ],
+    "llm_pick": "San Antonio Spurs",
+    "llm_confidence": 0.83,
+    "llm_reasoning": "Spurs' implied probability is higher than their historical performance, indicating potential value.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.145,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:17.145Z"
+  },
+  {
+    "id": "cf8a3409-d180-4b37-9530-7600471e7c52",
+    "received_at": "2026-09-15T05:48:17.564Z",
+    "actual_result": null,
+    "event_id": "086d2fe80483ffcc280994fe2e12d4f4",
+    "sport": "basketball_nba",
+    "home_team": "Denver Nuggets",
+    "away_team": "Houston Rockets",
+    "commence_time": "2026-11-21T03:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Denver Nuggets",
+        "implied_probability": 0.5786,
+        "avg_decimal_odds": 1.62
+      },
+      {
+        "team": "Houston Rockets",
+        "implied_probability": 0.4214,
+        "avg_decimal_odds": 2.225
+      }
+    ],
+    "llm_pick": "Denver Nuggets",
+    "llm_confidence": 0.85,
+    "llm_reasoning": "Nuggets' implied probability is higher than their historical average, suggesting potential value.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.62,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:17.564Z"
+  },
+  {
+    "id": "c58efbcb-94a3-4e52-89b5-4fe475efb282",
+    "received_at": "2026-09-15T05:48:18.080Z",
+    "actual_result": null,
+    "event_id": "3167a4072c65c9314c71d0fe49be8e28",
+    "sport": "basketball_nba",
+    "home_team": "Washington Wizards",
+    "away_team": "Boston Celtics",
+    "commence_time": "2026-11-25T01:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Boston Celtics",
+        "implied_probability": 0.6402,
+        "avg_decimal_odds": 1.465
+      },
+      {
+        "team": "Washington Wizards",
+        "implied_probability": 0.3598,
+        "avg_decimal_odds": 2.605
+      }
+    ],
+    "llm_pick": "Boston Celtics",
+    "llm_confidence": 0.73,
+    "llm_reasoning": "Home team has a slight edge, but Celtics' implied probability is still relatively high.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.465,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:18.080Z"
+  },
+  {
+    "id": "afe73050-d143-4fb1-930d-ff767473c402",
+    "received_at": "2026-09-15T05:48:18.647Z",
+    "actual_result": null,
+    "event_id": "6bfadbd22ed8a054cf82ec1b12b78243",
+    "sport": "basketball_nba",
+    "home_team": "Denver Nuggets",
+    "away_team": "Dallas Mavericks",
+    "commence_time": "2026-11-25T03:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Denver Nuggets",
+        "implied_probability": 0.7468,
+        "avg_decimal_odds": 1.255
+      },
+      {
+        "team": "Dallas Mavericks",
+        "implied_probability": 0.2532,
+        "avg_decimal_odds": 3.7
+      }
+    ],
+    "llm_pick": "Denver Nuggets",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Favorable odds for Nuggets, indicating potential value in their win probability",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.255,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:18.647Z"
+  },
+  {
+    "id": "67f90be7-9de7-4009-8adb-7188baf163fd",
+    "received_at": "2026-09-15T05:48:19.220Z",
+    "actual_result": null,
+    "event_id": "4f6d199bb67cf3a517a3880fd2f00b26",
+    "sport": "basketball_nba",
+    "home_team": "Philadelphia 76ers",
+    "away_team": "Miami Heat",
+    "commence_time": "2026-11-25T22:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Philadelphia 76ers",
+        "implied_probability": 0.5999,
+        "avg_decimal_odds": 1.565
+      },
+      {
+        "team": "Miami Heat",
+        "implied_probability": 0.4001,
+        "avg_decimal_odds": 2.345
+      }
+    ],
+    "llm_pick": "Philadelphia 76ers",
+    "llm_confidence": 0.75,
+    "llm_reasoning": "Philadelphia 76ers' de-vigged implied probability is 59.99%, higher than expected given their performance.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.565,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:19.220Z"
+  },
+  {
+    "id": "423c6f23-85d3-423d-8148-30ef04e220fc",
+    "received_at": "2026-09-15T05:48:19.672Z",
+    "actual_result": null,
+    "event_id": "07421d1675d6bc51bb5fa91f84a09eb3",
+    "sport": "basketball_nba",
+    "home_team": "Oklahoma City Thunder",
+    "away_team": "Minnesota Timberwolves",
+    "commence_time": "2026-11-26T00:40:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "Oklahoma City Thunder",
+        "implied_probability": 0.7662,
+        "avg_decimal_odds": 1.225
+      },
+      {
+        "team": "Minnesota Timberwolves",
+        "implied_probability": 0.2338,
+        "avg_decimal_odds": 4.015
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "No value edge detected between the two teams, as implied probabilities appear to be close to neutral.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:19.672Z"
+  },
+  {
+    "id": "8082f1ca-1a9e-4f56-8281-c4459ae03013",
+    "received_at": "2026-09-15T05:48:20.196Z",
+    "actual_result": null,
+    "event_id": "9aa9f220709533d70d11f85fae886771",
+    "sport": "basketball_nba",
+    "home_team": "Portland Trail Blazers",
+    "away_team": "San Antonio Spurs",
+    "commence_time": "2026-11-26T03:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "San Antonio Spurs",
+        "implied_probability": 0.6051,
+        "avg_decimal_odds": 1.55
+      },
+      {
+        "team": "Portland Trail Blazers",
+        "implied_probability": 0.3949,
+        "avg_decimal_odds": 2.375
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "No edge found between San Antonio Spurs (55.1%) and Portland Trail Blazers (62.9%)",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:20.196Z"
+  },
+  {
+    "id": "7a797110-d988-4544-b9d0-60e770c2cad9",
+    "received_at": "2026-09-15T05:48:20.646Z",
+    "actual_result": null,
+    "event_id": "3c522e32c3035d7dc3e1734903b84654",
+    "sport": "basketball_nba",
+    "home_team": "New York Knicks",
+    "away_team": "Miami Heat",
+    "commence_time": "2026-11-28T00:10:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "New York Knicks",
+        "implied_probability": 0.6427,
+        "avg_decimal_odds": 1.46
+      },
+      {
+        "team": "Miami Heat",
+        "implied_probability": 0.3573,
+        "avg_decimal_odds": 2.625
+      }
+    ],
+    "llm_pick": "New York Knicks",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Knicks' implied probability higher than historical averages.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.46,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:20.647Z"
+  },
+  {
+    "id": "685dd99e-d3aa-4fb0-baa8-5ce3d320129c",
+    "received_at": "2026-09-15T05:48:21.116Z",
+    "actual_result": null,
+    "event_id": "13d9ca3bcb664829c603755d31401002",
+    "sport": "basketball_nba",
+    "home_team": "San Antonio Spurs",
+    "away_team": "Los Angeles Lakers",
+    "commence_time": "2026-11-28T02:40:00Z",
+    "bookmaker_count": 2,
+    "market_implied_probabilities": [
+      {
+        "team": "San Antonio Spurs",
+        "implied_probability": 0.7156,
+        "avg_decimal_odds": 1.31
+      },
+      {
+        "team": "Los Angeles Lakers",
+        "implied_probability": 0.2844,
+        "avg_decimal_odds": 3.295
+      }
+    ],
+    "llm_pick": "Los Angeles Lakers",
+    "llm_confidence": 0.85,
+    "llm_reasoning": "Underpriced by 2.5% based on historical performance and recent trends",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 3.295,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:21.116Z"
+  },
+  {
+    "id": "27764ba3-2e14-406a-8fa2-c26f45584114",
+    "received_at": "2026-09-15T05:48:21.666Z",
+    "actual_result": null,
+    "event_id": "a6555e8b7252dfb32f1817fc8c59ad83",
+    "sport": "basketball_nba",
+    "home_team": "New York Knicks",
+    "away_team": "San Antonio Spurs",
+    "commence_time": "2026-12-25T17:00:00Z",
+    "bookmaker_count": 27,
+    "market_implied_probabilities": [
+      {
+        "team": "New York Knicks",
+        "implied_probability": 0.5028,
+        "avg_decimal_odds": 1.867
+      },
+      {
+        "team": "San Antonio Spurs",
+        "implied_probability": 0.4972,
+        "avg_decimal_odds": 1.889
+      }
+    ],
+    "llm_pick": "New York Knicks",
+    "llm_confidence": 0.53,
+    "llm_reasoning": "Knicks have a slight edge, with implied probability deviating from 50%.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.867,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:21.666Z"
+  },
+  {
+    "id": "73a6cb8f-ba39-475a-9280-79d74c33d0de",
+    "received_at": "2026-09-15T05:48:22.172Z",
+    "actual_result": null,
+    "event_id": "d60e7fc0690e4dff121a086395e24de4",
+    "sport": "basketball_nba",
+    "home_team": "Boston Celtics",
+    "away_team": "Miami Heat",
+    "commence_time": "2026-12-25T19:30:00Z",
+    "bookmaker_count": 27,
+    "market_implied_probabilities": [
+      {
+        "team": "Boston Celtics",
+        "implied_probability": 0.6293,
+        "avg_decimal_odds": 1.495
+      },
+      {
+        "team": "Miami Heat",
+        "implied_probability": 0.3707,
+        "avg_decimal_odds": 2.538
+      }
+    ],
+    "llm_pick": "Boston Celtics",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Underdog Celtics have a relatively high implied probability, suggesting value in their +1.5 spread or outright bet.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.495,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:22.172Z"
+  },
+  {
+    "id": "9cf49373-82fb-4e38-9439-2c30ab5d3fc0",
+    "received_at": "2026-09-15T05:48:22.667Z",
+    "actual_result": null,
+    "event_id": "dfd908bad3a3bfcae9e08bf128273b18",
+    "sport": "basketball_nba",
+    "home_team": "Los Angeles Lakers",
+    "away_team": "Philadelphia 76ers",
+    "commence_time": "2026-12-25T22:00:00Z",
+    "bookmaker_count": 27,
+    "market_implied_probabilities": [
+      {
+        "team": "Los Angeles Lakers",
+        "implied_probability": 0.508,
+        "avg_decimal_odds": 1.853
+      },
+      {
+        "team": "Philadelphia 76ers",
+        "implied_probability": 0.492,
+        "avg_decimal_odds": 1.913
+      }
+    ],
+    "llm_pick": "Philadelphia 76ers",
+    "llm_confidence": 0.75,
+    "llm_reasoning": "76ers' implied probability is lower than Lakers', indicating a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.913,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:22.667Z"
+  },
+  {
+    "id": "d15cc652-ead6-4aa3-b6d2-5b63eeb755f2",
+    "received_at": "2026-09-15T05:48:23.113Z",
+    "actual_result": null,
+    "event_id": "2b7218aa25cf98318a40e6f2469a5c5d",
+    "sport": "basketball_nba",
+    "home_team": "Minnesota Timberwolves",
+    "away_team": "Oklahoma City Thunder",
+    "commence_time": "2026-12-26T01:00:00Z",
+    "bookmaker_count": 27,
+    "market_implied_probabilities": [
+      {
+        "team": "Oklahoma City Thunder",
+        "implied_probability": 0.5938,
+        "avg_decimal_odds": 1.585
+      },
+      {
+        "team": "Minnesota Timberwolves",
+        "implied_probability": 0.4062,
+        "avg_decimal_odds": 2.319
+      }
+    ],
+    "llm_pick": "Minnesota Timberwolves",
+    "llm_confidence": 0.65,
+    "llm_reasoning": "Oklahoma City Thunder's implied probability appears slightly high, suggesting an edge in Minnesota Timberwolves.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.319,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:23.113Z"
+  },
+  {
+    "id": "2352e3ef-52e2-4986-b7f7-20459c4dca76",
+    "received_at": "2026-09-15T05:48:23.619Z",
+    "actual_result": null,
+    "event_id": "85a2379bc49135f2759709e55af0c4c6",
+    "sport": "basketball_nba",
+    "home_team": "Golden State Warriors",
+    "away_team": "Denver Nuggets",
+    "commence_time": "2026-12-26T03:30:00Z",
+    "bookmaker_count": 26,
+    "market_implied_probabilities": [
+      {
+        "team": "Denver Nuggets",
+        "implied_probability": 0.5461,
+        "avg_decimal_odds": 1.724
+      },
+      {
+        "team": "Golden State Warriors",
+        "implied_probability": 0.4539,
+        "avg_decimal_odds": 2.075
+      }
+    ],
+    "llm_pick": "Denver Nuggets",
+    "llm_confidence": 0.75,
+    "llm_reasoning": "Favorable implied probability for the Nuggets, suggesting a possible value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.724,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:23.619Z"
+  },
+  {
+    "id": "be97d3f3-56c5-4151-b910-d366119e8ee1",
+    "received_at": "2026-09-15T05:48:24.864Z",
+    "actual_result": null,
+    "event_id": "82d8b6a005d78bac0b1508abc17a7d39",
+    "sport": "soccer_epl",
+    "home_team": "Brentford",
+    "away_team": "Chelsea",
+    "commence_time": "2026-09-18T19:00:00Z",
+    "bookmaker_count": 49,
+    "market_implied_probabilities": [
+      {
+        "team": "Chelsea",
+        "implied_probability": 0.4204,
+        "avg_decimal_odds": 2.246
+      },
+      {
+        "team": "Brentford",
+        "implied_probability": 0.3298,
+        "avg_decimal_odds": 2.865
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2498,
+        "avg_decimal_odds": 3.781
+      }
+    ],
+    "llm_pick": "Chelsea",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Chelsea's implied probability is higher than expected, suggesting a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.246,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:24.864Z"
+  },
+  {
+    "id": "7fa7c266-6a36-4ef8-be88-8b37be370bfe",
+    "received_at": "2026-09-15T05:48:25.363Z",
+    "actual_result": null,
+    "event_id": "d02ff636f652d5b5bb65f6b24330c4fe",
+    "sport": "soccer_epl",
+    "home_team": "Tottenham Hotspur",
+    "away_team": "Aston Villa",
+    "commence_time": "2026-09-19T11:30:00Z",
+    "bookmaker_count": 49,
+    "market_implied_probabilities": [
+      {
+        "team": "Tottenham Hotspur",
+        "implied_probability": 0.4765,
+        "avg_decimal_odds": 1.984
+      },
+      {
+        "team": "Aston Villa",
+        "implied_probability": 0.2618,
+        "avg_decimal_odds": 3.612
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2617,
+        "avg_decimal_odds": 3.613
+      }
+    ],
+    "llm_pick": "Aston Villa",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Aston Villa's implied probability is lower than expected, indicating potential value.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 3.612,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:25.363Z"
+  },
+  {
+    "id": "8b1e6a19-11e3-4231-a0d1-e63bb76b6b69",
+    "received_at": "2026-09-15T05:48:25.912Z",
+    "actual_result": null,
+    "event_id": "b5b058d0a95f9742548f789d1c564a78",
+    "sport": "soccer_epl",
+    "home_team": "Brighton and Hove Albion",
+    "away_team": "Arsenal",
+    "commence_time": "2026-09-19T14:00:00Z",
+    "bookmaker_count": 49,
+    "market_implied_probabilities": [
+      {
+        "team": "Arsenal",
+        "implied_probability": 0.5608,
+        "avg_decimal_odds": 1.684
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2421,
+        "avg_decimal_odds": 3.901
+      },
+      {
+        "team": "Brighton and Hove Albion",
+        "implied_probability": 0.1971,
+        "avg_decimal_odds": 4.797
+      }
+    ],
+    "llm_pick": "Arsenal",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Arsenal's implied probability of 56.08% is slightly below their historical average, suggesting a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.684,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:25.912Z"
+  },
+  {
+    "id": "9a145112-6146-4058-87ff-3980cdbb01f5",
+    "received_at": "2026-09-15T05:48:26.536Z",
+    "actual_result": null,
+    "event_id": "88519a51012811476c9b4724eafc96c5",
+    "sport": "soccer_epl",
+    "home_team": "Everton",
+    "away_team": "Ipswich Town",
+    "commence_time": "2026-09-19T14:00:00Z",
+    "bookmaker_count": 49,
+    "market_implied_probabilities": [
+      {
+        "team": "Everton",
+        "implied_probability": 0.536,
+        "avg_decimal_odds": 1.762
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2498,
+        "avg_decimal_odds": 3.782
+      },
+      {
+        "team": "Ipswich Town",
+        "implied_probability": 0.2142,
+        "avg_decimal_odds": 4.411
+      }
+    ],
+    "llm_pick": "Ipswich Town",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Ipswich Town's implied probability is lower than expected, indicating a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 4.411,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:26.536Z"
+  },
+  {
+    "id": "5b347876-fdde-4015-9930-a6e921ad8c30",
+    "received_at": "2026-09-15T05:48:27.119Z",
+    "actual_result": null,
+    "event_id": "f65c4eaf0f94a569f06d768f737dad2e",
+    "sport": "soccer_epl",
+    "home_team": "Newcastle United",
+    "away_team": "Hull City",
+    "commence_time": "2026-09-19T14:00:00Z",
+    "bookmaker_count": 49,
+    "market_implied_probabilities": [
+      {
+        "team": "Newcastle United",
+        "implied_probability": 0.5959,
+        "avg_decimal_odds": 1.585
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2219,
+        "avg_decimal_odds": 4.259
+      },
+      {
+        "team": "Hull City",
+        "implied_probability": 0.1822,
+        "avg_decimal_odds": 5.193
+      }
+    ],
+    "llm_pick": "Newcastle United",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Newcastle United's implied probability is higher than expected, suggesting an edge in a home match against a weaker opponent.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.585,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:27.119Z"
+  },
+  {
+    "id": "0ec32902-2e0f-48b2-8104-5941bfff00a2",
+    "received_at": "2026-09-15T05:48:27.650Z",
+    "actual_result": null,
+    "event_id": "75133fdcd4fc3067b303a8f166f974e4",
+    "sport": "soccer_epl",
+    "home_team": "Nottingham Forest",
+    "away_team": "Coventry City",
+    "commence_time": "2026-09-19T16:30:00Z",
+    "bookmaker_count": 49,
+    "market_implied_probabilities": [
+      {
+        "team": "Nottingham Forest",
+        "implied_probability": 0.5703,
+        "avg_decimal_odds": 1.655
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2401,
+        "avg_decimal_odds": 3.931
+      },
+      {
+        "team": "Coventry City",
+        "implied_probability": 0.1897,
+        "avg_decimal_odds": 4.986
+      }
+    ],
+    "llm_pick": "Coventry City",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Underpriced based on recent team performance, Coventry City offers value at 19.97% implied probability.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 4.986,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:27.650Z"
+  },
+  {
+    "id": "5f32fc6b-895d-4362-b6d5-4ed8f0feda29",
+    "received_at": "2026-09-15T05:48:28.239Z",
+    "actual_result": null,
+    "event_id": "784f777f5181e1efdad7a6ecb2cfde15",
+    "sport": "soccer_epl",
+    "home_team": "Bournemouth",
+    "away_team": "Liverpool",
+    "commence_time": "2026-09-20T13:00:00Z",
+    "bookmaker_count": 49,
+    "market_implied_probabilities": [
+      {
+        "team": "Liverpool",
+        "implied_probability": 0.4471,
+        "avg_decimal_odds": 2.113
+      },
+      {
+        "team": "Bournemouth",
+        "implied_probability": 0.3028,
+        "avg_decimal_odds": 3.121
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2501,
+        "avg_decimal_odds": 3.779
+      }
+    ],
+    "llm_pick": "Liverpool",
+    "llm_confidence": 0.76,
+    "llm_reasoning": "Liverpool's implied probability is higher than their historical performance against Bournemouth, indicating potential value",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.113,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:28.239Z"
+  },
+  {
+    "id": "369dc00f-2c50-4af9-a913-ea60d58d80b9",
+    "received_at": "2026-09-15T05:48:28.917Z",
+    "actual_result": null,
+    "event_id": "b63aef4291a066e32644e591c19a235a",
+    "sport": "soccer_epl",
+    "home_team": "Leeds United",
+    "away_team": "Crystal Palace",
+    "commence_time": "2026-09-20T13:00:00Z",
+    "bookmaker_count": 49,
+    "market_implied_probabilities": [
+      {
+        "team": "Leeds United",
+        "implied_probability": 0.5307,
+        "avg_decimal_odds": 1.781
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2512,
+        "avg_decimal_odds": 3.761
+      },
+      {
+        "team": "Crystal Palace",
+        "implied_probability": 0.2181,
+        "avg_decimal_odds": 4.338
+      }
+    ],
+    "llm_pick": "Leeds United",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Leeds United has a higher implied probability and lower odds compared to Crystal Palace, indicating potential value in backing them.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.781,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:28.917Z"
+  },
+  {
+    "id": "f53a1abb-4f36-4e0e-a2d5-e0e05f3691eb",
+    "received_at": "2026-09-15T05:48:29.480Z",
+    "actual_result": null,
+    "event_id": "f923236e69ed946fdc55163494ee88db",
+    "sport": "soccer_epl",
+    "home_team": "Manchester City",
+    "away_team": "Sunderland",
+    "commence_time": "2026-09-20T13:00:00Z",
+    "bookmaker_count": 49,
+    "market_implied_probabilities": [
+      {
+        "team": "Manchester City",
+        "implied_probability": 0.7315,
+        "avg_decimal_odds": 1.292
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.1692,
+        "avg_decimal_odds": 5.603
+      },
+      {
+        "team": "Sunderland",
+        "implied_probability": 0.0993,
+        "avg_decimal_odds": 9.56
+      }
+    ],
+    "llm_pick": "Manchester City",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "High implied probability for Manchester City, but still value given their historical dominance over Sunderland.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.292,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:29.480Z"
+  },
+  {
+    "id": "76417278-c233-4852-a57e-8ef3fce9e5c5",
+    "received_at": "2026-09-15T05:48:30.070Z",
+    "actual_result": null,
+    "event_id": "182b81a9e220b2347235107c42802fd8",
+    "sport": "soccer_epl",
+    "home_team": "Fulham",
+    "away_team": "Manchester United",
+    "commence_time": "2026-09-20T15:30:00Z",
+    "bookmaker_count": 48,
+    "market_implied_probabilities": [
+      {
+        "team": "Manchester United",
+        "implied_probability": 0.474,
+        "avg_decimal_odds": 1.99
+      },
+      {
+        "team": "Fulham",
+        "implied_probability": 0.2753,
+        "avg_decimal_odds": 3.427
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2506,
+        "avg_decimal_odds": 3.764
+      }
+    ],
+    "llm_pick": "Fulham",
+    "llm_confidence": 0.9,
+    "llm_reasoning": "Fulham's implied probability is significantly lower than the average team in the EPL, indicating potential value in their underdog odds.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 3.427,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:30.070Z"
+  },
+  {
+    "id": "86cf9560-4659-4315-982b-83b40958a3ea",
+    "received_at": "2026-09-15T05:48:30.595Z",
+    "actual_result": null,
+    "event_id": "b870dcfba5e5920d3f1551a3aa1ea435",
+    "sport": "soccer_epl",
+    "home_team": "Arsenal",
+    "away_team": "Leeds United",
+    "commence_time": "2026-10-10T11:30:00Z",
+    "bookmaker_count": 31,
+    "market_implied_probabilities": [
+      {
+        "team": "Arsenal",
+        "implied_probability": 0.7227,
+        "avg_decimal_odds": 1.296
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.1783,
+        "avg_decimal_odds": 5.259
+      },
+      {
+        "team": "Leeds United",
+        "implied_probability": 0.0991,
+        "avg_decimal_odds": 9.506
+      }
+    ],
+    "llm_pick": "Arsenal",
+    "llm_confidence": 0.85,
+    "llm_reasoning": "Arsenal's implied probability is significantly higher than expected, indicating potential value in backing the team.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.296,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:30.595Z"
+  },
+  {
+    "id": "c8de15d4-1a99-4ef2-9bce-b4eeb5c523e8",
+    "received_at": "2026-09-15T05:48:31.166Z",
+    "actual_result": null,
+    "event_id": "02e6c0ccb11bb7ce78989ce49d67110b",
+    "sport": "soccer_epl",
+    "home_team": "Aston Villa",
+    "away_team": "Brentford",
+    "commence_time": "2026-10-10T14:00:00Z",
+    "bookmaker_count": 31,
+    "market_implied_probabilities": [
+      {
+        "team": "Aston Villa",
+        "implied_probability": 0.3812,
+        "avg_decimal_odds": 2.429
+      },
+      {
+        "team": "Brentford",
+        "implied_probability": 0.3519,
+        "avg_decimal_odds": 2.629
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2669,
+        "avg_decimal_odds": 3.467
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "No clear value edge found in market-implied probabilities.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:31.166Z"
+  },
+  {
+    "id": "90a70623-0d86-438f-a947-cdba2d42218b",
+    "received_at": "2026-09-15T05:48:31.760Z",
+    "actual_result": null,
+    "event_id": "45d4a466e32cd2b4ea535207923ceaf5",
+    "sport": "soccer_epl",
+    "home_team": "Chelsea",
+    "away_team": "Bournemouth",
+    "commence_time": "2026-10-10T14:00:00Z",
+    "bookmaker_count": 31,
+    "market_implied_probabilities": [
+      {
+        "team": "Chelsea",
+        "implied_probability": 0.5266,
+        "avg_decimal_odds": 1.773
+      },
+      {
+        "team": "Bournemouth",
+        "implied_probability": 0.2458,
+        "avg_decimal_odds": 3.799
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2276,
+        "avg_decimal_odds": 4.104
+      }
+    ],
+    "llm_pick": "Bournemouth",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Bournemouth's implied probability is significantly lower than expected, indicating potential value in backing the underdog.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 3.799,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:31.760Z"
+  },
+  {
+    "id": "7c9d6ff4-aa6d-4780-813c-bddae6e195bd",
+    "received_at": "2026-09-15T05:48:32.246Z",
+    "actual_result": null,
+    "event_id": "380b8f24ec5430fb545a7490c1017285",
+    "sport": "soccer_epl",
+    "home_team": "Sunderland",
+    "away_team": "Brighton and Hove Albion",
+    "commence_time": "2026-10-10T14:00:00Z",
+    "bookmaker_count": 30,
+    "market_implied_probabilities": [
+      {
+        "team": "Brighton and Hove Albion",
+        "implied_probability": 0.4008,
+        "avg_decimal_odds": 2.338
+      },
+      {
+        "team": "Sunderland",
+        "implied_probability": 0.32,
+        "avg_decimal_odds": 2.928
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2792,
+        "avg_decimal_odds": 3.356
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "No value edge found in any team, implied probabilities are close to 1/3 for each outcome.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:32.247Z"
+  },
+  {
+    "id": "bb336f8e-b7a5-4de1-968b-7341862f9b36",
+    "received_at": "2026-09-15T05:48:32.828Z",
+    "actual_result": null,
+    "event_id": "288b4ff00c79daa712c911c564fe1be7",
+    "sport": "soccer_epl",
+    "home_team": "Ipswich Town",
+    "away_team": "Fulham",
+    "commence_time": "2026-10-10T14:00:00Z",
+    "bookmaker_count": 31,
+    "market_implied_probabilities": [
+      {
+        "team": "Fulham",
+        "implied_probability": 0.3767,
+        "avg_decimal_odds": 2.49
+      },
+      {
+        "team": "Ipswich Town",
+        "implied_probability": 0.356,
+        "avg_decimal_odds": 2.634
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2673,
+        "avg_decimal_odds": 3.513
+      }
+    ],
+    "llm_pick": "Fulham",
+    "llm_confidence": 0.85,
+    "llm_reasoning": "Fulham's implied probability is slightly higher than their historical performance suggests, indicating potential value.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.49,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:32.828Z"
+  },
+  {
+    "id": "bd87c4c8-24f3-4cbb-8e9d-e10979b5947d",
+    "received_at": "2026-09-15T05:48:33.304Z",
+    "actual_result": null,
+    "event_id": "22c9b2c43cbe1334381269550dab78e6",
+    "sport": "soccer_epl",
+    "home_team": "Manchester United",
+    "away_team": "Tottenham Hotspur",
+    "commence_time": "2026-10-10T16:30:00Z",
+    "bookmaker_count": 30,
+    "market_implied_probabilities": [
+      {
+        "team": "Manchester United",
+        "implied_probability": 0.5588,
+        "avg_decimal_odds": 1.618
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2382,
+        "avg_decimal_odds": 3.99
+      },
+      {
+        "team": "Tottenham Hotspur",
+        "implied_probability": 0.203,
+        "avg_decimal_odds": 4.477
+      }
+    ],
+    "llm_pick": "Manchester United",
+    "llm_confidence": 0.76,
+    "llm_reasoning": "Manchester United's implied probability is higher than expected, suggesting a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.618,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:33.304Z"
+  },
+  {
+    "id": "e9978ecd-099e-48e5-91c6-2bb758ba0ed9",
+    "received_at": "2026-09-15T05:48:33.828Z",
+    "actual_result": null,
+    "event_id": "86effab5c6e7bfd58c8e88b1fb7c6ba9",
+    "sport": "soccer_epl",
+    "home_team": "Crystal Palace",
+    "away_team": "Nottingham Forest",
+    "commence_time": "2026-10-11T13:00:00Z",
+    "bookmaker_count": 30,
+    "market_implied_probabilities": [
+      {
+        "team": "Nottingham Forest",
+        "implied_probability": 0.3559,
+        "avg_decimal_odds": 2.621
+      },
+      {
+        "team": "Crystal Palace",
+        "implied_probability": 0.3552,
+        "avg_decimal_odds": 2.627
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2888,
+        "avg_decimal_odds": 3.234
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "No value edge detected between Nottingham Forest and Crystal Palace.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:33.828Z"
+  },
+  {
+    "id": "d7d07590-44c2-40f9-84fb-627050d9e4e8",
+    "received_at": "2026-09-15T05:48:34.338Z",
+    "actual_result": null,
+    "event_id": "0bdae4d304810578e47386606bff7106",
+    "sport": "soccer_epl",
+    "home_team": "Hull City",
+    "away_team": "Everton",
+    "commence_time": "2026-10-11T13:00:00Z",
+    "bookmaker_count": 30,
+    "market_implied_probabilities": [
+      {
+        "team": "Everton",
+        "implied_probability": 0.451,
+        "avg_decimal_odds": 2.049
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2874,
+        "avg_decimal_odds": 3.215
+      },
+      {
+        "team": "Hull City",
+        "implied_probability": 0.2616,
+        "avg_decimal_odds": 3.582
+      }
+    ],
+    "llm_pick": "Hull City",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Hull City is significantly undervalued, with a 26.16% implied probability, indicating potential value.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 3.582,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:34.338Z"
+  },
+  {
+    "id": "cc8d8e74-efc4-49ce-93d3-fa20d1ddf5b0",
+    "received_at": "2026-09-15T05:48:34.845Z",
+    "actual_result": null,
+    "event_id": "6dbab232dd8d2aed0cb1d6f7978fb7b1",
+    "sport": "soccer_epl",
+    "home_team": "Liverpool",
+    "away_team": "Manchester City",
+    "commence_time": "2026-10-11T15:30:00Z",
+    "bookmaker_count": 30,
+    "market_implied_probabilities": [
+      {
+        "team": "Manchester City",
+        "implied_probability": 0.437,
+        "avg_decimal_odds": 2.124
+      },
+      {
+        "team": "Liverpool",
+        "implied_probability": 0.3074,
+        "avg_decimal_odds": 3.02
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2556,
+        "avg_decimal_odds": 3.631
+      }
+    ],
+    "llm_pick": "Manchester City",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Manchester City has a higher implied probability than Liverpool, indicating a potential value pick due to their stronger team performance.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.124,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:34.845Z"
+  },
+  {
+    "id": "51377402-109f-409b-96ba-4854913e9619",
+    "received_at": "2026-09-15T05:48:35.377Z",
+    "actual_result": null,
+    "event_id": "acd5bd945dd953ad1e300df5bfe696f9",
+    "sport": "soccer_epl",
+    "home_team": "Coventry City",
+    "away_team": "Newcastle United",
+    "commence_time": "2026-10-12T19:00:00Z",
+    "bookmaker_count": 30,
+    "market_implied_probabilities": [
+      {
+        "team": "Newcastle United",
+        "implied_probability": 0.4625,
+        "avg_decimal_odds": 2.028
+      },
+      {
+        "team": "Coventry City",
+        "implied_probability": 0.2793,
+        "avg_decimal_odds": 3.361
+      },
+      {
+        "team": "Draw",
+        "implied_probability": 0.2582,
+        "avg_decimal_odds": 3.635
+      }
+    ],
+    "llm_pick": "Newcastle United",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Newcastle United's implied probability is higher than expected, suggesting a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.028,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:35.377Z"
+  },
+  {
+    "id": "f2d6fe56-c3fb-4ece-bbad-5a41fe02cf18",
+    "received_at": "2026-09-15T05:48:36.591Z",
+    "actual_result": null,
+    "event_id": "56e8897681915f7ec92baeee952bb1ae",
+    "sport": "americanfootball_nfl",
+    "home_team": "Buffalo Bills",
+    "away_team": "Detroit Lions",
+    "commence_time": "2026-09-18T00:15:00Z",
+    "bookmaker_count": 39,
+    "market_implied_probabilities": [
+      {
+        "team": "Buffalo Bills",
+        "implied_probability": 0.6576,
+        "avg_decimal_odds": 1.447
+      },
+      {
+        "team": "Detroit Lions",
+        "implied_probability": 0.3424,
+        "avg_decimal_odds": 2.781
+      }
+    ],
+    "llm_pick": "no_bet",
+    "llm_confidence": 0,
+    "llm_reasoning": "No value edge detected, market-implied probabilities seem to be neutral.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": null,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:36.591Z"
+  },
+  {
+    "id": "0b0d3634-bb6f-4b64-9305-2820af9285e0",
+    "received_at": "2026-09-15T05:48:37.065Z",
+    "actual_result": null,
+    "event_id": "aee7eae1849ebb103b9bf233e9741392",
+    "sport": "americanfootball_nfl",
+    "home_team": "Atlanta Falcons",
+    "away_team": "Carolina Panthers",
+    "commence_time": "2026-09-20T17:00:00Z",
+    "bookmaker_count": 38,
+    "market_implied_probabilities": [
+      {
+        "team": "Carolina Panthers",
+        "implied_probability": 0.5211,
+        "avg_decimal_odds": 1.818
+      },
+      {
+        "team": "Atlanta Falcons",
+        "implied_probability": 0.4789,
+        "avg_decimal_odds": 1.978
+      }
+    ],
+    "llm_pick": "Atlanta Falcons",
+    "llm_confidence": 0.83,
+    "llm_reasoning": "Atlanta Falcons' implied probability is lower than historical odds, indicating potential value.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.978,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:37.065Z"
+  },
+  {
+    "id": "d9b4c4f6-b229-4fac-ba7e-72244fc32e61",
+    "received_at": "2026-09-15T05:48:37.577Z",
+    "actual_result": null,
+    "event_id": "2143ade9684fd876b68a4e8cbf451f05",
+    "sport": "americanfootball_nfl",
+    "home_team": "Baltimore Ravens",
+    "away_team": "New Orleans Saints",
+    "commence_time": "2026-09-20T17:00:00Z",
+    "bookmaker_count": 39,
+    "market_implied_probabilities": [
+      {
+        "team": "Baltimore Ravens",
+        "implied_probability": 0.7737,
+        "avg_decimal_odds": 1.226
+      },
+      {
+        "team": "New Orleans Saints",
+        "implied_probability": 0.2263,
+        "avg_decimal_odds": 4.202
+      }
+    ],
+    "llm_pick": "Baltimore Ravens",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Ravens have a significant edge, with a 27.3% higher implied probability than their average market odds suggest.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.226,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:37.577Z"
+  },
+  {
+    "id": "c47e2b85-c071-4986-9861-1e1d827128b8",
+    "received_at": "2026-09-15T05:48:38.099Z",
+    "actual_result": null,
+    "event_id": "0283a29e1b38ef78b29b904fd56a16dd",
+    "sport": "americanfootball_nfl",
+    "home_team": "Chicago Bears",
+    "away_team": "Minnesota Vikings",
+    "commence_time": "2026-09-20T17:00:00Z",
+    "bookmaker_count": 39,
+    "market_implied_probabilities": [
+      {
+        "team": "Chicago Bears",
+        "implied_probability": 0.6811,
+        "avg_decimal_odds": 1.394
+      },
+      {
+        "team": "Minnesota Vikings",
+        "implied_probability": 0.3189,
+        "avg_decimal_odds": 2.98
+      }
+    ],
+    "llm_pick": "Chicago Bears",
+    "llm_confidence": 0.85,
+    "llm_reasoning": "The Bears have a significant edge in this matchup, with a 68.11% implied probability, making it a value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.394,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:38.099Z"
+  },
+  {
+    "id": "5295c7f0-5e7a-46e3-95bd-9733d2a578c3",
+    "received_at": "2026-09-15T05:48:38.590Z",
+    "actual_result": null,
+    "event_id": "36ad2fa722f4915ef23d2c81351261de",
+    "sport": "americanfootball_nfl",
+    "home_team": "Houston Texans",
+    "away_team": "Cincinnati Bengals",
+    "commence_time": "2026-09-20T17:00:00Z",
+    "bookmaker_count": 39,
+    "market_implied_probabilities": [
+      {
+        "team": "Houston Texans",
+        "implied_probability": 0.5831,
+        "avg_decimal_odds": 1.635
+      },
+      {
+        "team": "Cincinnati Bengals",
+        "implied_probability": 0.4169,
+        "avg_decimal_odds": 2.288
+      }
+    ],
+    "llm_pick": "Cincinnati Bengals",
+    "llm_confidence": 0.6,
+    "llm_reasoning": "Bengals' implied probability (41.69%) is lower than expected, indicating potential value",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 2.288,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:38.590Z"
+  },
+  {
+    "id": "2e85dd38-b519-4d97-918e-68d61d0b22b5",
+    "received_at": "2026-09-15T05:48:39.089Z",
+    "actual_result": null,
+    "event_id": "0636ebff776d43f8c829a36713c80b22",
+    "sport": "americanfootball_nfl",
+    "home_team": "Tampa Bay Buccaneers",
+    "away_team": "Cleveland Browns",
+    "commence_time": "2026-09-20T17:00:00Z",
+    "bookmaker_count": 39,
+    "market_implied_probabilities": [
+      {
+        "team": "Tampa Bay Buccaneers",
+        "implied_probability": 0.7758,
+        "avg_decimal_odds": 1.225
+      },
+      {
+        "team": "Cleveland Browns",
+        "implied_probability": 0.2242,
+        "avg_decimal_odds": 4.245
+      }
+    ],
+    "llm_pick": "Tampa Bay Buccaneers",
+    "llm_confidence": 0.9,
+    "llm_reasoning": "Overwhelming implied probability, likely due to public favoritism, presents a value opportunity.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.225,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:39.089Z"
+  },
+  {
+    "id": "258b1850-8d5b-4fdc-9d7e-d03329de486c",
+    "received_at": "2026-09-15T05:48:39.591Z",
+    "actual_result": null,
+    "event_id": "4aeee070bb6ec60bdfae4dede61b9014",
+    "sport": "americanfootball_nfl",
+    "home_team": "New York Jets",
+    "away_team": "Green Bay Packers",
+    "commence_time": "2026-09-20T17:00:00Z",
+    "bookmaker_count": 39,
+    "market_implied_probabilities": [
+      {
+        "team": "Green Bay Packers",
+        "implied_probability": 0.6413,
+        "avg_decimal_odds": 1.482
+      },
+      {
+        "team": "New York Jets",
+        "implied_probability": 0.3587,
+        "avg_decimal_odds": 2.651
+      }
+    ],
+    "llm_pick": "Green Bay Packers",
+    "llm_confidence": 0.85,
+    "llm_reasoning": "Favorable implied probability, suggesting potential undervalue.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.482,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:39.591Z"
+  },
+  {
+    "id": "504bd353-4c46-41a9-8687-5a0a933051b5",
+    "received_at": "2026-09-15T05:48:40.110Z",
+    "actual_result": null,
+    "event_id": "9d14f87600f6edc74dbcb5c74edf6246",
+    "sport": "americanfootball_nfl",
+    "home_team": "New England Patriots",
+    "away_team": "Pittsburgh Steelers",
+    "commence_time": "2026-09-20T17:00:00Z",
+    "bookmaker_count": 39,
+    "market_implied_probabilities": [
+      {
+        "team": "New England Patriots",
+        "implied_probability": 0.6733,
+        "avg_decimal_odds": 1.411
+      },
+      {
+        "team": "Pittsburgh Steelers",
+        "implied_probability": 0.3267,
+        "avg_decimal_odds": 2.909
+      }
+    ],
+    "llm_pick": "New England Patriots",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Patriots' implied probability is higher than their historical performance, indicating a potential value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.411,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:40.110Z"
+  },
+  {
+    "id": "471d7fc9-f246-4e77-b95f-1b31f87fecbc",
+    "received_at": "2026-09-15T05:48:40.595Z",
+    "actual_result": null,
+    "event_id": "fafc649c455e32a0f2ba1bd06e2039bc",
+    "sport": "americanfootball_nfl",
+    "home_team": "Tennessee Titans",
+    "away_team": "Philadelphia Eagles",
+    "commence_time": "2026-09-20T17:00:00Z",
+    "bookmaker_count": 39,
+    "market_implied_probabilities": [
+      {
+        "team": "Philadelphia Eagles",
+        "implied_probability": 0.7428,
+        "avg_decimal_odds": 1.275
+      },
+      {
+        "team": "Tennessee Titans",
+        "implied_probability": 0.2572,
+        "avg_decimal_odds": 3.689
+      }
+    ],
+    "llm_pick": "Philadelphia Eagles",
+    "llm_confidence": 0.9,
+    "llm_reasoning": "Philadelphia Eagles have a high implied probability, indicating they are heavily favored, but their odds are not low enough to be considered a strong value pick.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.275,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:40.595Z"
+  },
+  {
+    "id": "7db4bf2a-8b6c-4400-9dda-74464fbde4d0",
+    "received_at": "2026-09-15T05:48:41.074Z",
+    "actual_result": null,
+    "event_id": "1fd6628c781f556a7a19638e97d7107f",
+    "sport": "americanfootball_nfl",
+    "home_team": "Denver Broncos",
+    "away_team": "Jacksonville Jaguars",
+    "commence_time": "2026-09-20T20:05:00Z",
+    "bookmaker_count": 25,
+    "market_implied_probabilities": [
+      {
+        "team": "Denver Broncos",
+        "implied_probability": 0.5507,
+        "avg_decimal_odds": 1.725
+      },
+      {
+        "team": "Jacksonville Jaguars",
+        "implied_probability": 0.4493,
+        "avg_decimal_odds": 2.114
+      }
+    ],
+    "llm_pick": "Denver Broncos",
+    "llm_confidence": 0.85,
+    "llm_reasoning": "Broncos have a 7.3% edge based on market-implied probabilities.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.725,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:41.074Z"
+  },
+  {
+    "id": "d9262256-4cfe-4f0c-91ac-38bab101e0ca",
+    "received_at": "2026-09-15T05:48:41.597Z",
+    "actual_result": null,
+    "event_id": "71b3b83747589efdc5baef2c5cf811bf",
+    "sport": "americanfootball_nfl",
+    "home_team": "Los Angeles Chargers",
+    "away_team": "Las Vegas Raiders",
+    "commence_time": "2026-09-20T20:05:00Z",
+    "bookmaker_count": 38,
+    "market_implied_probabilities": [
+      {
+        "team": "Los Angeles Chargers",
+        "implied_probability": 0.7323,
+        "avg_decimal_odds": 1.299
+      },
+      {
+        "team": "Las Vegas Raiders",
+        "implied_probability": 0.2677,
+        "avg_decimal_odds": 3.557
+      }
+    ],
+    "llm_pick": "Los Angeles Chargers",
+    "llm_confidence": 0.7,
+    "llm_reasoning": "Implied probability is higher than typical 70-30 favorite odds, suggesting potential value",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.299,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:41.597Z"
+  },
+  {
+    "id": "a87d185f-32af-47b7-8f4d-b7f193964424",
+    "received_at": "2026-09-15T05:48:42.064Z",
+    "actual_result": null,
+    "event_id": "4dd8020192a544385db42374e5555303",
+    "sport": "americanfootball_nfl",
+    "home_team": "Arizona Cardinals",
+    "away_team": "Seattle Seahawks",
+    "commence_time": "2026-09-20T20:25:00Z",
+    "bookmaker_count": 38,
+    "market_implied_probabilities": [
+      {
+        "team": "Seattle Seahawks",
+        "implied_probability": 0.6605,
+        "avg_decimal_odds": 1.437
+      },
+      {
+        "team": "Arizona Cardinals",
+        "implied_probability": 0.3395,
+        "avg_decimal_odds": 2.797
+      }
+    ],
+    "llm_pick": "Seattle Seahawks",
+    "llm_confidence": 0.9,
+    "llm_reasoning": "Implied probability slightly above 2/3, suggesting potential value in Seahawks.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.437,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:42.064Z"
+  },
+  {
+    "id": "ab546ff1-dac6-4928-b1aa-956d8f7bfa62",
+    "received_at": "2026-09-15T05:48:42.527Z",
+    "actual_result": null,
+    "event_id": "85ef85098ddd22fe4ecf45e7e3c0a9c0",
+    "sport": "americanfootball_nfl",
+    "home_team": "Dallas Cowboys",
+    "away_team": "Washington Commanders",
+    "commence_time": "2026-09-20T20:25:00Z",
+    "bookmaker_count": 38,
+    "market_implied_probabilities": [
+      {
+        "team": "Dallas Cowboys",
+        "implied_probability": 0.6395,
+        "avg_decimal_odds": 1.489
+      },
+      {
+        "team": "Washington Commanders",
+        "implied_probability": 0.3605,
+        "avg_decimal_odds": 2.646
+      }
+    ],
+    "llm_pick": "Dallas Cowboys",
+    "llm_confidence": 0.85,
+    "llm_reasoning": "Cowboys' implied probability under their historical performance and team strength.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.489,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:42.527Z"
+  },
+  {
+    "id": "72047898-d282-4cd5-847b-1f956b5401be",
+    "received_at": "2026-09-15T05:48:43.014Z",
+    "actual_result": null,
+    "event_id": "68bc55903f50af4af4766adcc89fcc61",
+    "sport": "americanfootball_nfl",
+    "home_team": "San Francisco 49ers",
+    "away_team": "Miami Dolphins",
+    "commence_time": "2026-09-20T20:25:00Z",
+    "bookmaker_count": 38,
+    "market_implied_probabilities": [
+      {
+        "team": "San Francisco 49ers",
+        "implied_probability": 0.8663,
+        "avg_decimal_odds": 1.099
+      },
+      {
+        "team": "Miami Dolphins",
+        "implied_probability": 0.1337,
+        "avg_decimal_odds": 7.163
+      }
+    ],
+    "llm_pick": "San Francisco 49ers",
+    "llm_confidence": 0.98,
+    "llm_reasoning": "High implied probability, suggesting overvalued Dolphins.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.099,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:43.014Z"
+  },
+  {
+    "id": "a3640f5d-5a2e-4316-9ec9-e6dddcf4afd8",
+    "received_at": "2026-09-15T05:48:43.444Z",
+    "actual_result": null,
+    "event_id": "50bc247030707d823b9c3581d7eb5760",
+    "sport": "americanfootball_nfl",
+    "home_team": "Kansas City Chiefs",
+    "away_team": "Indianapolis Colts",
+    "commence_time": "2026-09-21T00:20:00Z",
+    "bookmaker_count": 23,
+    "market_implied_probabilities": [
+      {
+        "team": "Kansas City Chiefs",
+        "implied_probability": 0.726,
+        "avg_decimal_odds": 1.303
+      },
+      {
+        "team": "Indianapolis Colts",
+        "implied_probability": 0.274,
+        "avg_decimal_odds": 3.454
+      }
+    ],
+    "llm_pick": "Kansas City Chiefs",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Chiefs' implied probability is higher than historical performance, indicating potential value",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.303,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:43.444Z"
+  },
+  {
+    "id": "f9276012-29b4-45bd-a7e0-ecd688b4dc8c",
+    "received_at": "2026-09-15T05:48:43.922Z",
+    "actual_result": null,
+    "event_id": "32367f882fac1a0c20a6335619922025",
+    "sport": "americanfootball_nfl",
+    "home_team": "Los Angeles Rams",
+    "away_team": "New York Giants",
+    "commence_time": "2026-09-22T00:15:00Z",
+    "bookmaker_count": 36,
+    "market_implied_probabilities": [
+      {
+        "team": "Los Angeles Rams",
+        "implied_probability": 0.7444,
+        "avg_decimal_odds": 1.276
+      },
+      {
+        "team": "New York Giants",
+        "implied_probability": 0.2556,
+        "avg_decimal_odds": 3.722
+      }
+    ],
+    "llm_pick": "Los Angeles Rams",
+    "llm_confidence": 0.8,
+    "llm_reasoning": "Rams' implied probability is significantly higher than historical data, indicating potential overreaction to recent losses.",
+    "llm_parse_failed": false,
+    "picked_avg_decimal_odds": 1.276,
+    "fx_usd_to_inr": 95.56,
+    "generated_at": "2026-09-15T05:48:43.922Z"
+  }
+]

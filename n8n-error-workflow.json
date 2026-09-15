@@ -1,0 +1,46 @@
+{
+  "name": "Sports Betting Orchestrator - Error Handler",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "errTrigger",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [-200, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const wf = $json.workflow || {};\nconst exec = $json.execution || {};\nconst trigger = $json.trigger || {};\nreturn [{\n  json: {\n    workflow: wf.name || 'Sports Betting Prediction Orchestrator',\n    node: (exec.lastNodeExecuted) || (trigger.name) || 'unknown',\n    message: (exec.error && exec.error.message) || 'Unknown error',\n    time: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "buildAlert",
+      "name": "Build Alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [20, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:3000/api/errors",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ sport: 'WORKFLOW_CRASH', message: $json.workflow + ' failed at ' + $json.node + ': ' + $json.message, occurred_at: $json.time }) }}",
+        "options": {}
+      },
+      "id": "sendAlert",
+      "name": "Log Crash To Backend",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [240, 300],
+      "continueOnFail": true
+    }
+  ],
+  "connections": {
+    "Error Trigger": {"main": [[{"node": "Build Alert", "type": "main", "index": 0}]]},
+    "Build Alert": {"main": [[{"node": "Log Crash To Backend", "type": "main", "index": 0}]]}
+  },
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "pinData": {}
+}
