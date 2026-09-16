@@ -4,6 +4,12 @@ const path = require('path');
 const crypto = require('crypto');
 const db = require('./db');
 
+try {
+  process.loadEnvFile(path.join(__dirname, '.env'));
+} catch (e) {
+  // .env is optional
+}
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 

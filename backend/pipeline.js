@@ -1,10 +1,26 @@
 const crypto = require('crypto');
+const path = require('path');
 const db = require('./db');
 
+try {
+  process.loadEnvFile(path.join(__dirname, '.env'));
+} catch (e) {
+  // .env is optional if environment variables are already set
+}
+
 const ODDS_API_KEY = process.env.ODDS_API_KEY || '';
+
+// Bedrock Mantle (OpenAI-compatible)
+const BEDROCK_API_KEY = process.env.BEDROCK_API_KEY || '';
+const BEDROCK_BASE_URL = process.env.BEDROCK_BASE_URL || 'https://bedrock-mantle.us-east-1.api.aws/v1';
+const BEDROCK_PROJECT = process.env.BEDROCK_PROJECT || 'default';
+const BEDROCK_MODEL = process.env.BEDROCK_MODEL || 'mistral.mistral-large-3-675b-instruct';
+
+// Cloudflare Workers AI (Fallback)
 const CF_ACCOUNT_ID = process.env.CF_ACCOUNT_ID || '';
 const CF_API_TOKEN = process.env.CF_API_TOKEN || '';
 const CF_MODEL = process.env.CF_MODEL || '@cf/meta/llama-3.1-8b-instruct';
+
 const SPORTS = (process.env.SPORTS || 'basketball_nba,soccer_epl,americanfootball_nfl').split(',');
 const REGIONS = process.env.REGIONS || 'us,uk,eu';
 
@@ -22,8 +38,70 @@ async function getFxRate() {
   }
 }
 
+async function fetchAIPrediction(event, cleanSport, implied) {
+  const systemPrompt = 'You are a sports betting analyst. You are given bookmaker-implied win probabilities that have already been de-vigged (overround removed). Decide if there is a value pick worth flagging. Reply with ONLY compact JSON, no prose, no markdown fences: {"pick": string, "confidence": number between 0 and 1, "reasoning": string under 40 words}. "pick" must be exactly one of the team names given, or the string "no_bet" if you see no edge worth flagging.';
+  const userContent = `Event: ${event.home_team} vs ${event.away_team}. Sport: ${cleanSport}. Commence: ${event.commence_time}. Market-implied probabilities: ${JSON.stringify(implied)}`;
+
+  // Priority 1: Bedrock Mantle (Mistral Large 3, Kimi K2.5, DeepSeek, Qwen, etc.)
+  if (BEDROCK_API_KEY) {
+    const res = await fetch(`${BEDROCK_BASE_URL}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${BEDROCK_API_KEY}`,
+        'openai-project': BEDROCK_PROJECT,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: BEDROCK_MODEL,
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userContent }
+        ],
+        max_tokens: 150,
+        temperature: 0.2
+      })
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      throw new Error(`Bedrock Mantle (${res.status}): ${errText}`);
+    }
+
+    const data = await res.json();
+    return data.choices?.[0]?.message?.content || '';
+  }
+
+  // Priority 2: Cloudflare Workers AI fallback
+  if (CF_ACCOUNT_ID && CF_API_TOKEN) {
+    const cfRes = await fetch(`https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/ai/run/${CF_MODEL}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${CF_API_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userContent }
+        ]
+      })
+    });
+
+    if (!cfRes.ok) {
+      const errText = await cfRes.text();
+      throw new Error(`Cloudflare AI (${cfRes.status}): ${errText}`);
+    }
+
+    const cfData = await cfRes.json();
+    return cfData.result?.response || cfData.response || cfData.result?.choices?.[0]?.message?.content || '';
+  }
+
+  throw new Error('No AI credentials configured in .env (set BEDROCK_API_KEY or CF_API_TOKEN)');
+}
+
 async function runPipeline() {
-  console.log('[Pipeline] Starting on-demand sports prediction run...');
+  const providerName = BEDROCK_API_KEY ? `Bedrock Mantle (${BEDROCK_MODEL})` : `Cloudflare AI (${CF_MODEL})`;
+  console.log(`[Pipeline] Starting on-demand sports prediction run using: ${providerName}...`);
   const usdToInr = await getFxRate();
   const predictions = [];
 
@@ -74,39 +152,14 @@ async function runPipeline() {
 
       if (!implied.length) continue;
 
-      // Ask Cloudflare Llama 3.1
       let llmPick = 'no_bet';
       let confidence = 0;
       let reasoning = '';
       let llmParseFailed = false;
+      const activeModel = BEDROCK_API_KEY ? BEDROCK_MODEL : CF_MODEL;
 
       try {
-        const cfRes = await fetch(`https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/ai/run/${CF_MODEL}`, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${CF_API_TOKEN}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            messages: [
-              {
-                role: 'system',
-                content: 'You are a sports betting analyst. You are given bookmaker-implied win probabilities that have already been de-vigged (overround removed). Decide if there is a value pick worth flagging. Reply with ONLY compact JSON, no prose, no markdown fences: {"pick": string, "confidence": number between 0 and 1, "reasoning": string under 40 words}. "pick" must be exactly one of the team names given, or the string "no_bet" if you see no edge worth flagging.'
-              },
-              {
-                role: 'user',
-                content: `Event: ${event.home_team} vs ${event.away_team}. Sport: ${cleanSport}. Commence: ${event.commence_time}. Market-implied probabilities: ${JSON.stringify(implied)}`
-              }
-            ]
-          })
-        });
-
-        const cfData = await cfRes.json();
-        let candidate = cfData.result?.response || cfData.response;
-        if (!candidate && cfData.result?.choices?.[0]?.message) {
-          candidate = cfData.result.choices[0].message.content;
-        }
-
+        const candidate = await fetchAIPrediction(event, cleanSport, implied);
         let parsed;
         if (typeof candidate === 'object' && candidate !== null) {
           parsed = candidate;
@@ -124,7 +177,7 @@ async function runPipeline() {
           reasoning = 'No clear edge identified';
         }
       } catch (err) {
-        console.error('[Pipeline] Cloudflare AI error for event:', event.id, err.message);
+        console.error('[Pipeline] AI analysis error for event:', event.id, err.message);
         llmPick = 'no_bet';
         reasoning = 'AI analysis unavailable: ' + err.message;
         llmParseFailed = true;
@@ -143,6 +196,7 @@ async function runPipeline() {
         commence_time: event.commence_time,
         bookmaker_count: event.bookmakers.length,
         market_implied_probabilities: implied,
+        llm_model: activeModel,
         llm_pick: llmPick,
         llm_confidence: confidence,
         llm_reasoning: reasoning,
@@ -157,7 +211,7 @@ async function runPipeline() {
     }
   }
 
-  console.log(`[Pipeline] Completed. Ingested ${predictions.length} predictions.`);
+  console.log(`[Pipeline] Completed. Ingested ${predictions.length} predictions using ${providerName}.`);
   return { ok: true, count: predictions.length };
 }
 
