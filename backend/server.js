@@ -43,23 +43,35 @@ app.post('/api/errors', (req, res) => {
 
 // Record what actually happened, once it's known, so accuracy is measurable
 // instead of assumed. event_id must match a previously ingested prediction.
+// Pass actual_winner: null to clear a previously recorded result.
 app.post('/api/results', (req, res) => {
-  const { event_id, actual_winner } = req.body || {};
-  if (!event_id || !actual_winner) {
-    return res.status(400).json({ ok: false, error: 'event_id and actual_winner are required' });
+  const body = req.body || {};
+  const event_id = body.event_id;
+  const actual_winner = body.actual_winner;
+  const isClear = Object.prototype.hasOwnProperty.call(body, 'actual_winner') && actual_winner === null;
+  if (!event_id) {
+    return res.status(400).json({ ok: false, error: 'event_id is required' });
+  }
+  if (!isClear && !actual_winner) {
+    return res.status(400).json({ ok: false, error: 'actual_winner is required (or pass null to clear)' });
   }
   const predictions = db.load('predictions');
   let updated = 0;
   for (const p of predictions) {
     if (p.event_id === event_id) {
-      p.actual_result = actual_winner;
-      p.was_correct = p.llm_pick !== 'no_bet' ? p.llm_pick === actual_winner : null;
+      if (isClear) {
+        p.actual_result = null;
+        if (Object.prototype.hasOwnProperty.call(p, 'was_correct')) delete p.was_correct;
+      } else {
+        p.actual_result = actual_winner;
+        p.was_correct = p.llm_pick !== 'no_bet' ? p.llm_pick === actual_winner : null;
+      }
       updated += 1;
     }
   }
   if (updated === 0) return res.status(404).json({ ok: false, error: 'no prediction found for that event_id' });
   db.saveAll('predictions', predictions);
-  res.json({ ok: true, updated });
+  res.json({ ok: true, updated, action: isClear ? 'cleared' : 'recorded' });
 });
 
 // ---- Read for the dashboard ---------------------------------------------
