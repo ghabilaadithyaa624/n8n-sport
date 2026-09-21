@@ -24,6 +24,8 @@ const CF_MODEL = process.env.CF_MODEL || '@cf/meta/llama-3.1-8b-instruct';
 const SPORTS = (process.env.SPORTS || 'basketball_nba,soccer_epl,americanfootball_nfl').split(',');
 const REGIONS = process.env.REGIONS || 'us,uk,eu';
 
+const MAX_EVENTS_PER_SPORT = Number(process.env.MAX_EVENTS_PER_SPORT || 6);
+
 function avg(arr) {
   return arr.reduce((a, b) => a + b, 0) / arr.length;
 }
@@ -44,31 +46,37 @@ async function fetchAIPrediction(event, cleanSport, implied) {
 
   // Priority 1: Bedrock Mantle (Mistral Large 3, Kimi K2.5, DeepSeek, Qwen, etc.)
   if (BEDROCK_API_KEY) {
-    const res = await fetch(`${BEDROCK_BASE_URL}/chat/completions`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${BEDROCK_API_KEY}`,
-        'openai-project': BEDROCK_PROJECT,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        model: BEDROCK_MODEL,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userContent }
-        ],
-        max_tokens: 150,
-        temperature: 0.2
-      })
-    });
+    try {
+      const res = await fetch(`${BEDROCK_BASE_URL}/chat/completions`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${BEDROCK_API_KEY}`,
+          'openai-project': BEDROCK_PROJECT,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: BEDROCK_MODEL,
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userContent }
+          ],
+          max_tokens: 150,
+          temperature: 0.2
+        })
+      });
 
-    if (!res.ok) {
+      if (res.ok) {
+        const data = await res.json();
+        return {
+          content: data.choices?.[0]?.message?.content || '',
+          model: BEDROCK_MODEL
+        };
+      }
       const errText = await res.text();
-      throw new Error(`Bedrock Mantle (${res.status}): ${errText}`);
+      console.warn(`[Pipeline] Bedrock Mantle unavailable (${res.status}), switching to Cloudflare AI fallback... (${errText.slice(0, 100)})`);
+    } catch (e) {
+      console.warn(`[Pipeline] Bedrock Mantle error (${e.message}), switching to Cloudflare AI fallback...`);
     }
-
-    const data = await res.json();
-    return data.choices?.[0]?.message?.content || '';
   }
 
   // Priority 2: Cloudflare Workers AI fallback
@@ -93,17 +101,23 @@ async function fetchAIPrediction(event, cleanSport, implied) {
     }
 
     const cfData = await cfRes.json();
-    return cfData.result?.response || cfData.response || cfData.result?.choices?.[0]?.message?.content || '';
+    const content = cfData.result?.response || cfData.response || cfData.result?.choices?.[0]?.message?.content || '';
+    return {
+      content,
+      model: CF_MODEL
+    };
   }
 
   throw new Error('No AI credentials configured in .env (set BEDROCK_API_KEY or CF_API_TOKEN)');
 }
 
 async function runPipeline() {
-  const providerName = BEDROCK_API_KEY ? `Bedrock Mantle (${BEDROCK_MODEL})` : `Cloudflare AI (${CF_MODEL})`;
+  const providerName = BEDROCK_API_KEY ? `Bedrock Mantle (${BEDROCK_MODEL}) [with Cloudflare fallback]` : `Cloudflare AI (${CF_MODEL})`;
   console.log(`[Pipeline] Starting on-demand sports prediction run using: ${providerName}...`);
   const usdToInr = await getFxRate();
-  const predictions = [];
+  const allExisting = db.load('predictions');
+  const existingMap = new Map(allExisting.map(p => [p.event_id, p]));
+  let processedCount = 0;
 
   for (const sport of SPORTS) {
     const cleanSport = sport.trim();
@@ -127,8 +141,14 @@ async function runPipeline() {
 
     if (!Array.isArray(events) || events.length === 0) continue;
 
-    // Process each match (de-vig)
-    for (const event of events) {
+    // Prioritize upcoming events starting soonest
+    const sortedEvents = [...events].sort((a, b) => new Date(a.commence_time) - new Date(b.commence_time));
+    const targetEvents = sortedEvents.slice(0, MAX_EVENTS_PER_SPORT);
+
+    console.log(`[Pipeline] Analyzing ${targetEvents.length} upcoming matches for ${cleanSport}...`);
+
+    // Process each match (de-vig & LLM pick)
+    for (const event of targetEvents) {
       if (!event.bookmakers || !event.bookmakers.length) continue;
       const probsByTeam = {};
       const oddsByTeam = {};
@@ -156,10 +176,13 @@ async function runPipeline() {
       let confidence = 0;
       let reasoning = '';
       let llmParseFailed = false;
-      const activeModel = BEDROCK_API_KEY ? BEDROCK_MODEL : CF_MODEL;
+      let activeModel = CF_MODEL;
 
       try {
-        const candidate = await fetchAIPrediction(event, cleanSport, implied);
+        const aiResult = await fetchAIPrediction(event, cleanSport, implied);
+        const candidate = aiResult.content;
+        activeModel = aiResult.model;
+
         let parsed;
         if (typeof candidate === 'object' && candidate !== null) {
           parsed = candidate;
@@ -184,11 +207,13 @@ async function runPipeline() {
       }
 
       const pickedOdds = implied.find(p => p.team === llmPick) || null;
+      const existing = existingMap.get(event.id);
 
       const record = {
-        id: crypto.randomUUID(),
-        received_at: new Date().toISOString(),
-        actual_result: null,
+        id: existing?.id || crypto.randomUUID(),
+        received_at: existing?.received_at || new Date().toISOString(),
+        actual_result: existing ? existing.actual_result : null,
+        ...(existing && existing.was_correct !== undefined ? { was_correct: existing.was_correct } : {}),
         event_id: event.id,
         sport: cleanSport,
         home_team: event.home_team,
@@ -206,13 +231,16 @@ async function runPipeline() {
         generated_at: new Date().toISOString()
       };
 
-      db.append('predictions', record);
-      predictions.push(record);
+      existingMap.set(event.id, record);
+      processedCount++;
     }
   }
 
-  console.log(`[Pipeline] Completed. Ingested ${predictions.length} predictions using ${providerName}.`);
-  return { ok: true, count: predictions.length };
+  const updatedPredictions = Array.from(existingMap.values());
+  db.saveAll('predictions', updatedPredictions);
+
+  console.log(`[Pipeline] Completed. Analyzed ${processedCount} matches. Total database records: ${updatedPredictions.length}.`);
+  return { ok: true, count: processedCount, total: updatedPredictions.length };
 }
 
 module.exports = { runPipeline };

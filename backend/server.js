@@ -128,7 +128,7 @@ app.post('/api/trigger', async (req, res) => {
     return res.json({ ok: true, message: 'Pipeline is already running, please wait a moment...' });
   }
   isRunningPipeline = true;
-  res.json({ ok: true, message: 'Pipeline started!' });
+  res.json({ ok: true, message: 'Pipeline started!', wait_ms: 22000 });
   try {
     const pipeline = require('./pipeline');
     await pipeline.runPipeline();
